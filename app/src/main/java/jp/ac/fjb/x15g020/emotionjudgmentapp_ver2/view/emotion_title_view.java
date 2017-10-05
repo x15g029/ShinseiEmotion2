@@ -1,7 +1,9 @@
-package jp.ac.fjb.x15g020.emotionjudgmentapp_ver2;
+package jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 
 public class emotion_title_view extends AppCompatActivity {
 
