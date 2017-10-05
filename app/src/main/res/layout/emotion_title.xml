@@ -4,15 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.emotion_title_view">
+    tools:context="jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.emotion_title_view"
+    tools:background="@drawable/abackn">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+     <!--<RelativeLayout-->
+         <!--android:layout_width="368dp"-->
+         <!--android:layout_height="495dp"-->
+         <!--tools:background="@drawable/abackn"-->
+         <!--tools:layout_editor_absoluteY="8dp"-->
+         <!--tools:layout_editor_absoluteX="8dp">-->
+
+            <LinearLayout
+                android:layout_width="368dp"
+                android:layout_height="495dp"
+                android:orientation="vertical"
+                android:weightSum="1"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                tools:layout_editor_absoluteY="8dp"
+                tools:layout_editor_absoluteX="8dp">
+
+                <ImageView
+                    android:id="@+id/title1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
+                    android:scaleX="1.2"
+                    android:scaleY="1.2"
+                    app:srcCompat="@drawable/hyoujou" />
+
+                <ImageView
+                    android:id="@+id/title2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/training" />
+
+                <ImageView
+                    android:id="@+id/Ccopy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="80dp"
+                    app:srcCompat="@drawable/ctachcopy" />
+
+                <ImageButton
+                    android:id="@+id/start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="70dp"
+                    android:layout_weight="0.02"
+                    android:background="#000000"
+                    app:srcCompat="@drawable/start" />
+            </LinearLayout>
+
+        <!--</RelativeLayout>-->
 
 </android.support.constraint.ConstraintLayout>
