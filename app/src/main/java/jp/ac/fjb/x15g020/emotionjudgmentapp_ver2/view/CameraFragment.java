@@ -10,8 +10,10 @@ import android.view.MotionEvent;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
@@ -52,7 +54,7 @@ public class CameraFragment extends Fragment implements View.OnTouchListener, Em
 	@Override
 	public void onResume() {
 		super.onResume();
-		mCamera.open(0);
+		mCamera.open(1);
 		mCamera.startPreview();
 
 	}
@@ -65,7 +67,7 @@ public class CameraFragment extends Fragment implements View.OnTouchListener, Em
 
 	@Override
 	public boolean onTouch(View view, MotionEvent motionEvent) {
-		Toast.makeText(getContext(), "写真保存", Toast.LENGTH_SHORT);
+		Toast.makeText(getContext(), "写真保存", Toast.LENGTH_SHORT).show();;
 		String path = Environment.getExternalStorageDirectory()+"/emotionjudgment.jpg";
 		mCamera.save(path);
 
@@ -75,7 +77,34 @@ public class CameraFragment extends Fragment implements View.OnTouchListener, Em
 	}
 
 	@Override
-	public void onEmotion(JSONObject json) {
+	public void onEmotion(JSONArray json) {
+		if(json == null)
+			Toast.makeText(getContext(), "接続エラー", Toast.LENGTH_SHORT).show();
+		else{
+			if(json.length() == 0)
+				Toast.makeText(getContext(), "顔検出エラー", Toast.LENGTH_SHORT).show();
+			else{
+				try{
+					JSONObject jsonObject = (JSONObject)json.get(0);
+					JSONObject scores = (JSONObject)jsonObject.get("scores");
+					double anger = scores.getDouble("anger");
+					double contempt = scores.getDouble("contempt");
+					double disgust = scores.getDouble("disgust");
+					double fear = scores.getDouble("fear");
+					double happiness = scores.getDouble("happiness");
+					double neutral = scores.getDouble("neutral");
+					double sadness = scores.getDouble("sadness");
+					double surprise = scores.getDouble("surprise");
 
+					TextView text = getView().findViewById(R.id.textStatus);
+					String msg = String.format("anger:%f\ncontempt:%f\ndisgust:%f\nfear:%f\nhappiness:%f\nneutral:%f\nsadness:%f\nsurprise:%f\n",
+						anger,contempt,disgust,fear,happiness,neutral,sadness,surprise);
+					text.setText(msg);
+				}catch (Exception e){
+					Toast.makeText(getContext(), "データエラー", Toast.LENGTH_SHORT).show();
+				}
+;
+			}
+		}
 	}
 }

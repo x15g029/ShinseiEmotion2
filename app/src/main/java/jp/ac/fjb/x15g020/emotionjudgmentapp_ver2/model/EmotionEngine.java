@@ -1,10 +1,8 @@
 package jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -23,15 +21,20 @@ public class EmotionEngine {
 	final static String EmotuionKey1 = "ba0940707fd04b14a8dad57ab46e2142";
 	final static String EmotuionKey2 = "5cd4f94f06ba4e548859b0840a58b156";
 	public interface EmotionListener{
-		public void onEmotion(JSONObject json);
+		public void onEmotion(JSONArray json);
 	}
 
 	public static void getEmotion(final String path, final EmotionListener listener){
-		new AsyncTask<Integer, Integer, Integer>(){
+		new AsyncTask<Integer, Integer, JSONArray>(){
+			@Override
+			protected void onPostExecute(JSONArray json) {
+				super.onPostExecute(json);
+				listener.onEmotion(json);
+			}
 
 			@Override
-			protected Integer doInBackground(Integer... integers) {
-				JSONObject json = null;
+			protected JSONArray doInBackground(Integer... integers) {
+				JSONArray json = null;
 				try {
 
 					URL url = new URL(EmotionURL);
@@ -66,18 +69,15 @@ public class EmotionEngine {
 							InputStream in = con.getInputStream();
 							BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 							String line;
-							String readStr = new String();
+							StringBuilder sb = new StringBuilder();
 
 							while (null != (line = reader.readLine())){
-								readStr += line;
+								sb.append(line);
 							}
-							Log.d("EmotionAPI","read string: " + readStr);
-
 							in.close();
-
-							json = new JSONArray(readStr).getJSONObject(0);
+							System.out.println(sb.toString());
+							json = new JSONArray(sb.toString());
 							break;
-
 						case HttpURLConnection.HTTP_UNAUTHORIZED:
 							break;
 						default:
@@ -87,8 +87,8 @@ public class EmotionEngine {
 				} catch (Exception e){
 					e.printStackTrace();
 				}
-				listener.onEmotion(json);
-				return 0;
+
+				return json;
 			}
 		}.execute();
 
