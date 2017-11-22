@@ -67,7 +67,11 @@ public class CameraFragment extends Fragment implements View.OnTouchListener, Em
 
 	@Override
 	public boolean onTouch(View view, MotionEvent motionEvent) {
-		Toast.makeText(getContext(), "写真保存", Toast.LENGTH_SHORT).show();;
+		TextView text = getView().findViewById(R.id.textStatus);
+		text.setText("測定中");
+		Toast.makeText(getContext(), "写真保存", Toast.LENGTH_SHORT).show();
+
+		//写真撮影
 		String path = Environment.getExternalStorageDirectory()+"/emotionjudgment.jpg";
 		mCamera.save(path);
 
@@ -97,13 +101,12 @@ public class CameraFragment extends Fragment implements View.OnTouchListener, Em
 					double surprise = scores.getDouble("surprise");
 
 					TextView text = getView().findViewById(R.id.textStatus);
-					String msg = String.format("anger:%f\ncontempt:%f\ndisgust:%f\nfear:%f\nhappiness:%f\nneutral:%f\nsadness:%f\nsurprise:%f\n",
+					String msg = String.format("怒り　:%f\n軽蔑　:%f\nムカ　:%f\n恐れ　:%f\n喜び　:%f\n無表情:%f\n悲しみ:%f\n驚き　:%f\n",
 						anger,contempt,disgust,fear,happiness,neutral,sadness,surprise);
 					text.setText(msg);
 				}catch (Exception e){
 					Toast.makeText(getContext(), "データエラー", Toast.LENGTH_SHORT).show();
 				}
-;
 			}
 		}
 	}
