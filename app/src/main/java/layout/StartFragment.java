@@ -3,12 +3,15 @@ package layout;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.AppLaunchChecker;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.util.Log;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 
@@ -48,7 +51,15 @@ public class StartFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.layout_main, new MapFragment());
-        ft.commit();
+
+        if(AppLaunchChecker.hasStartedFromLauncher(getContext())){
+            ft.replace(R.id.layout_main, new MapFragment());
+            ft.commit();
+        }else{
+            ft.replace(R.id.layout_main, new TutorialFragment1());
+            ft.commit();
+        }
+
+        AppLaunchChecker.onActivityCreate(getActivity());
     }
 }
