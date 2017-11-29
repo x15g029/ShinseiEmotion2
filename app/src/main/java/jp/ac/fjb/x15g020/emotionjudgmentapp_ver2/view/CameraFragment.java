@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -21,6 +22,7 @@ import org.json.JSONObject;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.CameraPreview;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.EmotionEngine;
+import layout.PictureCheckFragment;
 import layout.ResultOkFragment;
 
 /**
@@ -28,6 +30,7 @@ import layout.ResultOkFragment;
  */
 public class CameraFragment extends Fragment implements View.OnTouchListener, EmotionEngine.EmotionListener {
 	CameraPreview mCamera;
+	private String path;
 
 	public CameraFragment() {
 		// Required empty public constructor
@@ -61,7 +64,7 @@ public class CameraFragment extends Fragment implements View.OnTouchListener, Em
 			@Override
 			public void onClick(View v) {
 				FragmentTransaction ft = getFragmentManager().beginTransaction();
-				ft.replace(R.id.layout_main,new ResultOkFragment());
+				ft.replace(R.id.layout_main,new PictureCheckFragment());
 				ft.commit();
 
 			}
@@ -94,7 +97,7 @@ public class CameraFragment extends Fragment implements View.OnTouchListener, Em
 		Toast.makeText(getContext(), "写真保存", Toast.LENGTH_SHORT).show();
 
 		//写真撮影
-		String path = Environment.getExternalStorageDirectory()+"/emotionjudgment.jpg";
+		path = Environment.getExternalStorageDirectory()+"/emotionjudgment.jpg";
 		mCamera.save(path);
 
 		//エモーションエンジンの呼び出し
@@ -135,6 +138,7 @@ public class CameraFragment extends Fragment implements View.OnTouchListener, Em
 			}
 		}
 	}
+
 
 
 }
