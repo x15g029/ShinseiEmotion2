@@ -12,14 +12,14 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        app:srcCompat="@drawable/image_chac" />
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
         android:id="@+id/imageOdai"
         android:layout_width="300dp"
         android:layout_height="120dp"
         android:layout_gravity="center"
-        app:srcCompat="@drawable/image_odai" />
+        app:srcCompat="@drawable/odai8" />
 
     <ImageButton
         android:id="@+id/btnCamera"

@@ -88,7 +88,7 @@
             android:layout_marginRight="20dp"
             android:layout_weight="0.3"
             android:background="@android:color/holo_orange_light"
-            app:srcCompat="@drawable/image_stageselect" />
+            app:srcCompat="@drawable/map_back" />
 
         <ImageButton
             android:id="@+id/btnRevenge"
