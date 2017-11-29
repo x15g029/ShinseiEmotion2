@@ -12,10 +12,10 @@ import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TutorialFragment extends Fragment {
+public class TutorialFragment3 extends Fragment {
 
 
-    public TutorialFragment() {
+    public TutorialFragment3() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class TutorialFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tutorial2, container, false);
+        return inflater.inflate(R.layout.fragment_tutorial3, container, false);
     }
 
 }
