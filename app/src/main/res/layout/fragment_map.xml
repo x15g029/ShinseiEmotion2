@@ -1,0 +1,138 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="layout.MapFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/image_back"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/image_map" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnSui"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="120dp"
+                android:background="@null"
+                android:scaleType="fitStart"
+                app:srcCompat="@drawable/image_sui" />
+
+            <ImageButton
+                android:id="@+id/btnKin"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@null"
+                android:scaleType="fitStart"
+                app:srcCompat="@drawable/image_kin" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageButton
+                android:id="@+id/btnTi"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_marginLeft="90dp"
+                android:background="@null"
+                android:scaleType="fitStart"
+                app:srcCompat="@drawable/image_ti" />
+
+            <ImageButton
+                android:id="@+id/btnKa"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@null"
+                android:scaleType="fitStart"
+                app:srcCompat="@drawable/imarge_ka" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnMoku"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@null"
+                android:scaleType="fitStart"
+                app:srcCompat="@drawable/image_moku" />
+
+            <ImageButton
+                android:id="@+id/btnDo"
+                android:layout_width="180dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:background="@null"
+                android:scaleType="fitStart"
+                app:srcCompat="@drawable/imarge_do" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnTen"
+                android:layout_width="100dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@null"
+                android:scaleType="fitStart"
+                app:srcCompat="@drawable/imarge_ten" />
+
+            <ImageButton
+                android:id="@+id/btnKai"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="40dp"
+                android:background="@null"
+                android:scaleType="fitStart"
+                app:srcCompat="@drawable/imarge_mei" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>

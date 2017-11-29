@@ -10,6 +10,6 @@ public class emotion_title_view extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.emotion_title);
+        setContentView(R.layout.fragment_start);
     }
 }

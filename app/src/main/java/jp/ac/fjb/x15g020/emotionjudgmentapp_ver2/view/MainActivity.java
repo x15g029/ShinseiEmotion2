@@ -7,6 +7,7 @@ import android.view.WindowManager;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.Permission;
+import layout.StartFragment;
 
 public class MainActivity extends AppCompatActivity {
 	Permission mPermission;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 				//フラグメントの切り替え
 				FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 				//ほむほーむへ
-				ft.replace(R.id.layout_main,new CameraFragment());
+				ft.replace(R.id.layout_main,new StartFragment());
 				ft.commit();
 			}
 		});
