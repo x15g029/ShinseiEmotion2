@@ -21,11 +21,11 @@ import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ResultFragment extends Fragment implements View.OnClickListener {
+public class ResultOkFragment extends Fragment implements View.OnClickListener {
     private ImageButton btn1;
     private ImageButton btn2;
 
-    public ResultFragment() {
+    public ResultOkFragment() {
         // Required empty public constructor
     }
 
@@ -33,7 +33,7 @@ public class ResultFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_result, container, false);
+        View view = inflater.inflate(R.layout.fragment_result_ok, container, false);
         return view;
     }
 
@@ -43,8 +43,8 @@ public class ResultFragment extends Fragment implements View.OnClickListener {
 
 
         //IDからオブジェクトを取得
-         btn1 = (ImageButton) view.findViewById(R.id.btnStageSelect);
-         btn2 = (ImageButton) view.findViewById(R.id.btnRevenge);
+        btn1 = (ImageButton) view.findViewById(R.id.btnStageSelect);
+        btn2 = (ImageButton) view.findViewById(R.id.btnRevenge);
 
         //ボタンをリスナーに登録
         btn1.setOnClickListener(this);

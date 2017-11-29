@@ -1,12 +1,10 @@
 package jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -23,7 +21,7 @@ import org.json.JSONObject;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.CameraPreview;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.EmotionEngine;
-import layout.ResultFragment;
+import layout.ResultOkFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,7 +61,7 @@ public class CameraFragment extends Fragment implements View.OnTouchListener, Em
 			@Override
 			public void onClick(View v) {
 				FragmentTransaction ft = getFragmentManager().beginTransaction();
-				ft.replace(R.id.layout_main,new ResultFragment());
+				ft.replace(R.id.layout_main,new ResultOkFragment());
 				ft.commit();
 
 			}
