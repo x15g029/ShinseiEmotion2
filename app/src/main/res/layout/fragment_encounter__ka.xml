@@ -32,7 +32,10 @@
 
     <ImageButton
         android:id="@+id/btnBack"
-        android:layout_width="100dp"
+        android:layout_width="157dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/image_sui" />
+        android:background="@null"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        app:srcCompat="@drawable/back" />
 </LinearLayout>

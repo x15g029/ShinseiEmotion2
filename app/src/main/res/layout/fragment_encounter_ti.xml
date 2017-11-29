@@ -29,4 +29,13 @@
         android:background="@null"
         android:scaleType="fitXY"
         app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="157dp"
+        android:layout_height="100dp"
+        android:background="@null"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        app:srcCompat="@drawable/back" />
 </LinearLayout>
