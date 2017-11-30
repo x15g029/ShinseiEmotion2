@@ -68,10 +68,15 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        Bundle bundle = new Bundle();
         if(view.getId() == R.id.btnSui) {
+
+            bundle.putInt("データ名",1);
             //水星  押下時
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.layout_main, new EncounterSuiFragment());
+            Fragment f = new EncounterSuiFragment();
+            f.setArguments(bundle);
+            ft.replace(R.id.layout_main,f );
             ft.commit();
         }else if(view.getId() == R.id.btnKin){
             //金星　 押下時

@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraFragment;
+import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraMokuFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,7 +61,7 @@ public class EncounterMokuFragment extends Fragment implements View.OnClickListe
         if(view.getId() == R.id.btnCamera) {
             //カメラ 押下時
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.layout_main, new CameraFragment());
+            ft.replace(R.id.layout_main, new CameraMokuFragment());
             ft.commit();
         }else{
             //戻る  押下時

@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraFragment;
+import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraSuiFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,6 +45,8 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
         super.onViewCreated(view, savedInstanceState);
 
 
+        Bundle bundle = getArguments();
+        System.out.println("送られてきたデータ:"+bundle.getInt("データ名"));
         //IDからオブジェクトを取得
         btn1 = (ImageButton) view.findViewById(R.id.btnCamera);
         btn2 = (ImageButton) view.findViewById(R.id.btnBack);
@@ -58,7 +61,7 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
         if(view.getId() == R.id.btnCamera) {
             //カメラ 押下時
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.layout_main, new CameraFragment());
+            ft.replace(R.id.layout_main, new CameraSuiFragment());
             ft.commit();
         }else{
             //戻る  押下時

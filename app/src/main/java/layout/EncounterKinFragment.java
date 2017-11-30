@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraFragment;
+import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraKinFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,7 +57,7 @@ public class EncounterKinFragment extends Fragment implements View.OnClickListen
         if(view.getId() == R.id.btnCamera) {
             //カメラ 押下時
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.layout_main, new CameraFragment());
+            ft.replace(R.id.layout_main, new CameraKinFragment());
             ft.commit();
         }else{
             //戻る  押下時

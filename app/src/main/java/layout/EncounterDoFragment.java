@@ -12,6 +12,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
+import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraDoFragment;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraFragment;
 
 /**
@@ -58,7 +59,7 @@ public class EncounterDoFragment extends Fragment implements View.OnClickListene
         if(view.getId() == R.id.btnCamera) {
             //カメラ 押下時
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.layout_main, new CameraFragment());
+            ft.replace(R.id.layout_main, new CameraDoFragment());
             ft.commit();
         }else{
             //戻る  押下時
