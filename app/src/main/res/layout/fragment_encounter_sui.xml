@@ -11,8 +11,7 @@
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        app:srcCompat="@drawable/image_chac" />
+        android:layout_marginTop="30dp" />
 
     <ImageView
         android:id="@+id/imageOdai"
@@ -38,4 +37,10 @@
         android:scaleX="0.5"
         android:scaleY="0.5"
         app:srcCompat="@drawable/back" />
+
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 </LinearLayout>

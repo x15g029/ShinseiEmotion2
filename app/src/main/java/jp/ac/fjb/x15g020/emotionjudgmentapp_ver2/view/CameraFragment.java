@@ -21,8 +21,6 @@ import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.CameraPreview;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.EmotionEngine;
 import layout.PictureCheckFragment;
-import layout.PictureCheckKaiFragment;
-import layout.PictureCheckKinFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -88,7 +86,7 @@ public class CameraFragment extends Fragment implements View.OnTouchListener ,Em
 			@Override
 			public void onSave(Bitmap bitmap) {
 				FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-				ft2.replace(R.id.layout_main,new PictureCheckKaiFragment());
+				ft2.replace(R.id.layout_main,new PictureCheckFragment());
 				ft2.commit();
 			}
 		});
