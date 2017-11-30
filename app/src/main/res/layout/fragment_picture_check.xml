@@ -20,8 +20,8 @@
             app:srcCompat="@android:color/background_light" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:id="@+id/textStatus"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView" />
 

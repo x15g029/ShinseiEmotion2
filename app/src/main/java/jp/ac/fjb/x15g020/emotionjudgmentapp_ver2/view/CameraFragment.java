@@ -53,23 +53,6 @@ public class CameraFragment extends Fragment implements View.OnTouchListener ,Em
 
 		getView().setOnTouchListener(this);
 
-
-//		//IDからオブジェクトを取得
-//		Button button  = (Button)view.findViewById(R.id.button);
-//		//リスナーを登録
-//		button.setOnClickListener(new View.OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				FragmentTransaction ft = getFragmentManager().beginTransaction();
-//				ft.replace(R.id.layout_main,new PictureCheckFragment());
-//				ft.commit();
-
-
-
-//			}
-//		});
-
-
 	}
 
 
