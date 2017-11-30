@@ -29,7 +29,7 @@ import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PictureCheckFragment extends Fragment {
+public class PictureCheckFragment extends Fragment implements View.OnClickListener{
 
     CameraPreview mCamera;
     private ImageButton btn1;
@@ -65,32 +65,32 @@ public class PictureCheckFragment extends Fragment {
         return view;
     }
 
-//    @Override
-//    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//
-//        //IDからオブジェクトを取得
-//        btn1 = (ImageButton) view.findViewById(R.id.btnBack);
-//        btn2 = (ImageButton) view.findViewById(R.id.btnNext);
-//        //ボタンをリスナーに登録
-//        btn1.setOnClickListener(this);
-//        btn2.setOnClickListener(this);
-//
-//    }
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        //IDからオブジェクトを取得
+        btn1 = (ImageButton) view.findViewById(R.id.btnBack);
+        btn2 = (ImageButton) view.findViewById(R.id.btnNext);
+        //ボタンをリスナーに登録
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
+
+    }
 
 
-//    @Override
-//    public void onClick(View view) {
-//        if(view.getId() == R.id.btnBack) {
-//            //もう一度撮影  押下時
-//            FragmentTransaction ft = getFragmentManager().beginTransaction();
-//            ft.replace(R.id.layout_main, new CameraFragment());
-//            ft.commit();
-//        }else{
-//            //判定する　 押下時
-//            FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-//            ft2.replace(R.id.layout_main,new ResultOkFragment());
-//            ft2.commit();
-//        }
-//    }
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.btnBack) {
+            //もう一度撮影  押下時
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.layout_main, new CameraFragment());
+            ft.commit();
+        }else{
+            //判定する　 押下時
+            FragmentTransaction ft2 = getFragmentManager().beginTransaction();
+            ft2.replace(R.id.layout_main,new ResultOkFragment());
+            ft2.commit();
+        }
+    }
 }
