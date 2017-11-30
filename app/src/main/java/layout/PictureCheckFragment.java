@@ -1,29 +1,21 @@
 package layout;
 
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.io.File;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.CameraPreview;
-import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.EmotionEngine;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraFragment;
 
 /**
@@ -46,7 +38,7 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
         View view =  inflater.inflate(R.layout.fragment_picture_check, container, false);
 
         //カメラで撮影した写真の一時保存データを取得  (よくわからんけどフィールドにしてある)
-         path = Environment.getExternalStorageDirectory()+"/emotionjudgment.jpg";
+         path = getContext().getCacheDir()+"/emotionjudgment.jpg";
 
         //一時保存データのパスをFileにセット　（Uriで指定できるようにするため？）
         File file = new File(path);
