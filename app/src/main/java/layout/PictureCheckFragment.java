@@ -47,15 +47,12 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
          path = getContext().getCacheDir()+"/emotionjudgment.jpg";
         //一時保存データのパスをFileにセット　（Uriで指定できるようにするため？）
         File file = new File(path);
-        //撮影した写真をプレビューに表示
+        //写真を表示
         ImageView picView = (ImageView)view.findViewById(R.id.PictureView);
         picView.setImageURI(Uri.fromFile(file));
 
         //エモーションエンジンの呼び出し
         EmotionEngine.getEmotion(path,this);
-
-
-
 
         return view;
     }
@@ -120,6 +117,8 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
             ft.commit();
         }else{
             //判定する　 押下時
+
+
             FragmentTransaction ft2 = getFragmentManager().beginTransaction();
             ft2.replace(R.id.layout_main,new ResultOkFragment());
             ft2.commit();
