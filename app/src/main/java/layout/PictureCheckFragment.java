@@ -1,23 +1,21 @@
 package layout;
 
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.File;
 
@@ -29,7 +27,7 @@ import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PictureCheckFragment extends Fragment implements View.OnClickListener {
+public class PictureCheckFragment extends Fragment implements View.OnClickListener,EmotionEngine.EmotionListener{
 
     CameraPreview mCamera;
     private ImageButton btn1;
@@ -46,19 +44,16 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
         View view =  inflater.inflate(R.layout.fragment_picture_check, container, false);
 
         //カメラで撮影した写真の一時保存データを取得  (よくわからんけどフィールドにしてある)
-         path = Environment.getExternalStorageDirectory()+"/emotionjudgment.jpg";
-
+         path = getContext().getCacheDir()+"/emotionjudgment.jpg";
         //一時保存データのパスをFileにセット　（Uriで指定できるようにするため？）
         File file = new File(path);
-
         //撮影した写真をプレビューに表示
         ImageView picView = (ImageView)view.findViewById(R.id.PictureView);
         picView.setImageURI(Uri.fromFile(file));
 
+        //エモーションエンジンの呼び出し
+        EmotionEngine.getEmotion(path,this);
 
-//        //～確認用～　　テキスト表示で確認
-//        TextView textView = (TextView)view.findViewById(R.id.textView);
-//        textView.setText("確認用" + path);
 
 
 
@@ -66,13 +61,50 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
     }
 
     @Override
+    public void onEmotion(JSONArray json) {
+        if(getContext()==null)
+            return;
+        if(json == null)
+            Toast.makeText(getContext(), "接続エラー", Toast.LENGTH_SHORT).show();
+
+        else{
+            if(json.length() == 0)
+                Toast.makeText(getContext(), "顔検出エラー", Toast.LENGTH_SHORT).show();
+            else{
+                try{
+                    JSONObject jsonObject = (JSONObject)json.get(0);
+                    JSONObject scores = (JSONObject)jsonObject.get("scores");
+                    double anger = scores.getDouble("anger");
+                    double contempt = scores.getDouble("contempt");
+                    double disgust = scores.getDouble("disgust");
+                    double fear = scores.getDouble("fear");
+                    double happiness = scores.getDouble("happiness");
+                    double neutral = scores.getDouble("neutral");
+                    double sadness = scores.getDouble("sadness");
+                    double surprise = scores.getDouble("surprise");
+
+                    TextView text = getView().findViewById(R.id.textStatus);
+                    String msg = String.format("怒り　:%f\n軽蔑　:%f\nムカ　:%f\n恐れ　:%f\n喜び　:%f\n無表情:%f\n悲しみ:%f\n驚き　:%f\n",
+                            anger,contempt,disgust,fear,happiness,neutral,sadness,surprise);
+                    text.setText(msg);
+                }catch (Exception e){
+                    Toast.makeText(getContext(), "データエラー", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
+
+
+
+    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //IDからオブジェクトを取得
+        //インスタンス取得
         btn1 = (ImageButton) view.findViewById(R.id.btnBack);
         btn2 = (ImageButton) view.findViewById(R.id.btnNext);
-        //ボタンをリスナーに登録
+
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
 

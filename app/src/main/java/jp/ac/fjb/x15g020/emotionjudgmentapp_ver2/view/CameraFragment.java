@@ -1,18 +1,16 @@
 package jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view;
 
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,12 +21,11 @@ import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.CameraPreview;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.EmotionEngine;
 import layout.PictureCheckFragment;
-import layout.ResultOkFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CameraFragment extends Fragment implements View.OnTouchListener {
+public class CameraFragment extends Fragment implements View.OnTouchListener ,EmotionEngine.EmotionListener{
 	CameraPreview mCamera;
 	private String path;
 
@@ -56,23 +53,6 @@ public class CameraFragment extends Fragment implements View.OnTouchListener {
 
 		getView().setOnTouchListener(this);
 
-
-//		//IDからオブジェクトを取得
-//		Button button  = (Button)view.findViewById(R.id.button);
-//		//リスナーを登録
-//		button.setOnClickListener(new View.OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				FragmentTransaction ft = getFragmentManager().beginTransaction();
-//				ft.replace(R.id.layout_main,new PictureCheckFragment());
-//				ft.commit();
-
-
-
-//			}
-//		});
-
-
 	}
 
 
@@ -99,16 +79,22 @@ public class CameraFragment extends Fragment implements View.OnTouchListener {
 		text.setText("測定中");
 		Toast.makeText(getContext(), "写真保存", Toast.LENGTH_SHORT).show();
 
-//		//写真撮影
-		path = Environment.getExternalStorageDirectory()+"/emotionjudgment.jpg";
+		//保存パスの設定
+		path = getContext().getCacheDir()+"/emotionjudgment.jpg";
+		//保存が完了したら実行する処理
+		mCamera.setSaveListener(new CameraPreview.SaveListener() {
+			@Override
+			public void onSave(Bitmap bitmap) {
+				FragmentTransaction ft2 = getFragmentManager().beginTransaction();
+				ft2.replace(R.id.layout_main,new PictureCheckFragment());
+				ft2.commit();
+			}
+		});
+		//写真撮影
 		mCamera.save(path);
 
-		FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-		ft2.replace(R.id.layout_main,new PictureCheckFragment());
-		ft2.commit();
-
 		//エモーションエンジンの呼び出し
-//		EmotionEngine.getEmotion(path,this);
+		EmotionEngine.getEmotion(path,this);
 
 
 		return false;
@@ -117,39 +103,39 @@ public class CameraFragment extends Fragment implements View.OnTouchListener {
 
 	}
 
-//	@Override
-//	public void onEmotion(JSONArray json) {
-//		if(getContext()==null)
-//			return;
-//		if(json == null)
-//			Toast.makeText(getContext(), "接続エラー", Toast.LENGTH_SHORT).show();
-//
-//		else{
-//			if(json.length() == 0)
-//				Toast.makeText(getContext(), "顔検出エラー", Toast.LENGTH_SHORT).show();
-//			else{
-//				try{
-//					JSONObject jsonObject = (JSONObject)json.get(0);
-//					JSONObject scores = (JSONObject)jsonObject.get("scores");
-//					double anger = scores.getDouble("anger");
-//					double contempt = scores.getDouble("contempt");
-//					double disgust = scores.getDouble("disgust");
-//					double fear = scores.getDouble("fear");
-//					double happiness = scores.getDouble("happiness");
-//					double neutral = scores.getDouble("neutral");
-//					double sadness = scores.getDouble("sadness");
-//					double surprise = scores.getDouble("surprise");
-//
-//					TextView text = getView().findViewById(R.id.textStatus);
-//					String msg = String.format("怒り　:%f\n軽蔑　:%f\nムカ　:%f\n恐れ　:%f\n喜び　:%f\n無表情:%f\n悲しみ:%f\n驚き　:%f\n",
-//							anger,contempt,disgust,fear,happiness,neutral,sadness,surprise);
-//					text.setText(msg);
-//				}catch (Exception e){
-//					Toast.makeText(getContext(), "データエラー", Toast.LENGTH_SHORT).show();
-//				}
-//			}
-//		}
-//	}
+	@Override
+	public void onEmotion(JSONArray json) {
+		if(getContext()==null)
+			return;
+		if(json == null)
+			Toast.makeText(getContext(), "接続エラー", Toast.LENGTH_SHORT).show();
+
+		else{
+			if(json.length() == 0)
+				Toast.makeText(getContext(), "顔検出エラー", Toast.LENGTH_SHORT).show();
+			else{
+				try{
+					JSONObject jsonObject = (JSONObject)json.get(0);
+					JSONObject scores = (JSONObject)jsonObject.get("scores");
+					double anger = scores.getDouble("anger");
+					double contempt = scores.getDouble("contempt");
+					double disgust = scores.getDouble("disgust");
+					double fear = scores.getDouble("fear");
+					double happiness = scores.getDouble("happiness");
+					double neutral = scores.getDouble("neutral");
+					double sadness = scores.getDouble("sadness");
+					double surprise = scores.getDouble("surprise");
+
+					TextView text = getView().findViewById(R.id.textStatus);
+					String msg = String.format("怒り　:%f\n軽蔑　:%f\nムカ　:%f\n恐れ　:%f\n喜び　:%f\n無表情:%f\n悲しみ:%f\n驚き　:%f\n",
+							anger,contempt,disgust,fear,happiness,neutral,sadness,surprise);
+					text.setText(msg);
+				}catch (Exception e){
+					Toast.makeText(getContext(), "データエラー", Toast.LENGTH_SHORT).show();
+				}
+			}
+		}
+	}
 
 
 

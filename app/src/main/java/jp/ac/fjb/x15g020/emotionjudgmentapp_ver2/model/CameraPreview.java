@@ -16,6 +16,7 @@ import java.util.List;
 
 
 public class CameraPreview implements TextureView.SurfaceTextureListener,  Camera.AutoFocusCallback {
+
     private Camera mCamera;
     private int mCameraId = -1;
     private TextureView mTextureView;
@@ -31,7 +32,7 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
     private Matrix mPosition;
     private Matrix mScale;
 
-    static interface SaveListener{
+    public static interface SaveListener{
         public void onSave(Bitmap bitmap);
     }
     public void setSaveListener(SaveListener l){
@@ -171,14 +172,18 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
             if(mFileName != null) {
                 FileOutputStream fos = null;
                 fos = new FileOutputStream(new File(mFileName));
-                // jpegで保存
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-                // 保存処理終了
-                fos.close();
+                if(fos != null){
+                    // jpegで保存
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+                    // 保存処理終了
+                    fos.close();
+                    mSaveListener.onSave(bitmap);
+                }
+
                 System.out.println(mFileName);
             }
-            else if(mSaveListener != null)
-                mSaveListener.onSave(bitmap);
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
