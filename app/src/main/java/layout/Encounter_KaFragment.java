@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
@@ -31,6 +32,9 @@ public class Encounter_KaFragment extends Fragment implements View.OnClickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_encounter__ka, container, false);
+
+        //キャラクターが動くやつ
+        view.findViewById(R.id.imageMonster).startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.anime));
         return view;
     }
 
