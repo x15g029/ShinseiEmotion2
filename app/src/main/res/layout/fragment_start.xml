@@ -7,7 +7,6 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,11 +30,12 @@
 
         <ImageButton
             android:id="@+id/btnStart"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="130px"
-            android:background="@null"
-            app:srcCompat="@drawable/image_stert" />
+            android:background="@drawable/image_stert"
+             android:src="@drawable/selector"/>
     </LinearLayout>
 
 

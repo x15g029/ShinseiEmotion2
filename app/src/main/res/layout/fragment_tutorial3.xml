@@ -14,16 +14,21 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageTutorial3"
-            android:layout_width="355dp"
-            android:layout_height="490dp"
+            android:id="@+id/imageTutorial1"
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             app:srcCompat="@drawable/imagetutorial_3" />
 
         <ImageButton
             android:id="@+id/btnNext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@android:drawable/btn_dialog" />
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_margin="10dp"
+            android:background="@drawable/yajirusi"
+            app:srcCompat="@drawable/selector" />
     </LinearLayout>
 
 </FrameLayout>

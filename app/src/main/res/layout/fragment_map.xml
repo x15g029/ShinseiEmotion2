@@ -36,9 +36,9 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginLeft="120dp"
-                android:background="@null"
+                android:background="@drawable/image_sui"
                 android:scaleType="fitStart"
-                app:srcCompat="@drawable/image_sui" />
+                app:srcCompat="@drawable/selector" />
 
             <ImageButton
                 android:id="@+id/btnKin"
@@ -46,9 +46,9 @@
                 android:layout_height="85dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:background="@null"
+                android:background="@drawable/image_kin"
                 android:scaleType="fitStart"
-                app:srcCompat="@drawable/image_kin" />
+                app:srcCompat="@drawable/selector" />
 
         </LinearLayout>
 
@@ -64,9 +64,9 @@
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_marginLeft="90dp"
-                android:background="@null"
+                android:background="@drawable/image_ti"
                 android:scaleType="fitStart"
-                app:srcCompat="@drawable/image_ti" />
+                app:srcCompat="@drawable/selector" />
 
             <ImageButton
                 android:id="@+id/btnKa"
@@ -74,9 +74,9 @@
                 android:layout_height="70dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="20dp"
-                android:background="@null"
+                android:background="@drawable/imarge_ka"
                 android:scaleType="fitStart"
-                app:srcCompat="@drawable/imarge_ka" />
+                app:srcCompat="@drawable/selector" />
         </LinearLayout>
 
         <LinearLayout
@@ -90,9 +90,9 @@
                 android:layout_height="150dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:background="@null"
+                android:background="@drawable/image_moku"
                 android:scaleType="fitStart"
-                app:srcCompat="@drawable/image_moku" />
+                app:srcCompat="@drawable/selector" />
 
             <ImageButton
                 android:id="@+id/btnDo"
@@ -100,9 +100,9 @@
                 android:layout_height="120dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="40dp"
-                android:background="@null"
+                android:background="@drawable/imarge_do"
                 android:scaleType="fitStart"
-                app:srcCompat="@drawable/imarge_do" />
+                app:srcCompat="@drawable/selector" />
 
         </LinearLayout>
 
@@ -117,9 +117,9 @@
                 android:layout_height="140dp"
                 android:layout_marginLeft="70dp"
                 android:layout_marginTop="10dp"
-                android:background="@null"
+                android:background="@drawable/imarge_ten"
                 android:scaleType="fitStart"
-                app:srcCompat="@drawable/imarge_ten" />
+                app:srcCompat="@drawable/selector" />
 
             <ImageButton
                 android:id="@+id/btnKai"
@@ -127,9 +127,9 @@
                 android:layout_height="120dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="40dp"
-                android:background="@null"
+                android:background="@drawable/imarge_mei"
                 android:scaleType="fitStart"
-                app:srcCompat="@drawable/imarge_mei" />
+                app:srcCompat="@drawable/selector" />
         </LinearLayout>
 
     </LinearLayout>

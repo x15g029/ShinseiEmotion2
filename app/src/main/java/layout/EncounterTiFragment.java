@@ -35,7 +35,7 @@ public class EncounterTiFragment extends Fragment implements View.OnClickListene
 
         //キャラクターが動くやつ
         view.findViewById(R.id.imageMonster).startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.anime));
-        
+
         return view;
     }
 
