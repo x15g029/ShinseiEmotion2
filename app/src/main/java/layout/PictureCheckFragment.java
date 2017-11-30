@@ -22,6 +22,7 @@ import android.widget.TextView;
 import java.io.File;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
+import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.CameraPreview;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.EmotionEngine;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraFragment;
 
@@ -30,7 +31,7 @@ import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraFragment;
  */
 public class PictureCheckFragment extends Fragment implements View.OnClickListener {
 
-
+    CameraPreview mCamera;
     private ImageButton btn1;
     private ImageButton btn2;
     private String path;
@@ -55,9 +56,9 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
         picView.setImageURI(Uri.fromFile(file));
 
 
-        //～確認用～　　テキスト表示で確認
-        TextView textView = (TextView)view.findViewById(R.id.textView);
-        textView.setText("確認用" + path);
+//        //～確認用～　　テキスト表示で確認
+//        TextView textView = (TextView)view.findViewById(R.id.textView);
+//        textView.setText("確認用" + path);
 
 
 
