@@ -11,31 +11,29 @@
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        app:srcCompat="@drawable/image_chac" />
+        android:layout_marginTop="30dp" />
 
     <ImageView
         android:id="@+id/imageOdai"
         android:layout_width="300dp"
         android:layout_height="120dp"
-        android:layout_gravity="center"
-        app:srcCompat="@drawable/odai7a" />
+        android:layout_gravity="center" />
 
     <ImageButton
         android:id="@+id/btnCamera"
         android:layout_width="105dp"
         android:layout_height="87dp"
         android:layout_gravity="center"
-        android:background="@null"
+        android:background="@android:drawable/ic_menu_camera"
         android:scaleType="fitXY"
-        app:srcCompat="@android:drawable/ic_menu_camera" />
+        app:srcCompat="@drawable/selector" />
 
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="157dp"
         android:layout_height="100dp"
-        android:background="@null"
+        android:background="@drawable/back"
         android:scaleX="0.5"
         android:scaleY="0.5"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/selector" />
 </LinearLayout>
