@@ -128,7 +128,7 @@ public class CameraFragment extends Fragment implements View.OnTouchListener ,Em
 
 					TextView text = getView().findViewById(R.id.textStatus);
 					String msg = String.format("怒り　:%f\n軽蔑　:%f\nムカ　:%f\n恐れ　:%f\n喜び　:%f\n無表情:%f\n悲しみ:%f\n驚き　:%f\n",
-							anger,contempt,disgust,fear,happiness,neutral,sadness,surprise);
+                            anger,contempt,disgust,fear,happiness,neutral,sadness,surprise);
 					text.setText(msg);
 				}catch (Exception e){
 					Toast.makeText(getContext(), "データエラー", Toast.LENGTH_SHORT).show();
