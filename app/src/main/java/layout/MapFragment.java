@@ -68,46 +68,71 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        Bundle bundle = new Bundle();
         if(view.getId() == R.id.btnSui) {
             //水星  押下時
+            bundle.putInt("惑星",1);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.layout_main, new EncounterSuiFragment());
+            Fragment f = new EncounterSuiFragment();
+            f.setArguments(bundle);
+            ft.replace(R.id.layout_main,f);
             ft.commit();
         }else if(view.getId() == R.id.btnKin){
             //金星　 押下時
-            FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-            ft2.replace(R.id.layout_main,new EncounterKinFragment());
-            ft2.commit();
+            bundle.putInt("惑星",2);
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            Fragment f = new EncounterSuiFragment();
+            f.setArguments(bundle);
+            ft.replace(R.id.layout_main,f);
+            ft.commit();
         }else if(view.getId() == R.id.btnTi){
             //地球　 押下時
-            FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-            ft2.replace(R.id.layout_main,new EncounterTiFragment());
-            ft2.commit();
+            bundle.putInt("惑星",3);
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            Fragment f = new EncounterSuiFragment();
+            f.setArguments(bundle);
+            ft.replace(R.id.layout_main,f);
+            ft.commit();
         }else if(view.getId() == R.id.btnKa){
             //火星　 押下時
-            FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-            ft2.replace(R.id.layout_main,new Encounter_KaFragment());
-            ft2.commit();
+            bundle.putInt("惑星",4);
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            Fragment f = new EncounterSuiFragment();
+            f.setArguments(bundle);
+            ft.replace(R.id.layout_main,f);
+            ft.commit();
         }else if(view.getId() == R.id.btnMoku){
             //木星　 押下時
-            FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-            ft2.replace(R.id.layout_main,new EncounterMokuFragment());
-            ft2.commit();
+            bundle.putInt("惑星",5);
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            Fragment f = new EncounterSuiFragment();
+            f.setArguments(bundle);
+            ft.replace(R.id.layout_main,f);
+            ft.commit();
         }else if(view.getId() == R.id.btnDo){
             //土星　 押下時
-            FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-            ft2.replace(R.id.layout_main,new EncounterDoFragment());
-            ft2.commit();
+            bundle.putInt("惑星",6);
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            Fragment f = new EncounterSuiFragment();
+            f.setArguments(bundle);
+            ft.replace(R.id.layout_main,f);
+            ft.commit();
         }else if(view.getId() == R.id.btnTen){
             //天王星　 押下時
-            FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-            ft2.replace(R.id.layout_main,new Encounter_TenFragment());
-            ft2.commit();
+            bundle.putInt("惑星",7);
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            Fragment f = new EncounterSuiFragment();
+            f.setArguments(bundle);
+            ft.replace(R.id.layout_main,f);
+            ft.commit();
         }else if(view.getId() == R.id.btnKai){
             //海王星　 押下時
-            FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-            ft2.replace(R.id.layout_main,new Encounter_KaiFragment());
-            ft2.commit();
+            bundle.putInt("惑星",8);
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            Fragment f = new EncounterSuiFragment();
+            f.setArguments(bundle);
+            ft.replace(R.id.layout_main,f);
+            ft.commit();
         }
     }
 
