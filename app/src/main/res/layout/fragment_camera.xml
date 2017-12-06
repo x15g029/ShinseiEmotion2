@@ -26,5 +26,14 @@
             android:text="テスト用テキストエリア"
             android:textColor="#ffffff"/>
 
+        <TextView
+            android:id="@+id/kaku"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="49dp"
+            android:layout_toEndOf="@+id/textStatus"
+            android:text="TextView" />
+
     </RelativeLayout>
 </FrameLayout>
