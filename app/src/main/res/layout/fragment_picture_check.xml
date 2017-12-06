@@ -33,17 +33,17 @@
 
             <ImageButton
                 android:id="@+id/btnBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_weight="1"
-                app:srcCompat="@android:drawable/btn_dialog" />
+                app:srcCompat="@drawable/nogo" />
 
             <ImageButton
                 android:id="@+id/btnNext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_weight="1"
-                app:srcCompat="@android:drawable/checkbox_on_background" />
+                app:srcCompat="@drawable/go" />
         </LinearLayout>
     </LinearLayout>
 

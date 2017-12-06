@@ -105,7 +105,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener ,
                     }else if(bundle.getInt("惑星") == 5 ){
                         //土星
                         ResultOdai.setText(("笑顔達成度　　:" + i1 +"%"));
-                        imageResultMonster.setImageResource(R.drawable.image_buu2);
+                        imageResultMonster.setImageResource(R.drawable.m_do1);
                     }else if(bundle.getInt("惑星") == 6 ){
 
                     }else if(bundle.getInt("惑星") == 7 ){
