@@ -32,8 +32,7 @@
                 android:id="@+id/imageResultMonster"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/image_tako" />
+                android:layout_weight="1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -47,7 +46,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:background="@android:color/background_light"
+                    android:text=""
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -55,8 +56,7 @@
             android:id="@+id/imageResultPicture"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/karigazou" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 

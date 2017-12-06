@@ -22,6 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.math.BigDecimal;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.CameraPreview;
@@ -82,35 +83,35 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener ,
                     double sadness = scores.getDouble("sadness");
                     double surprise = scores.getDouble("surprise");
 
-                    TextView ResultOdai = getView().findViewById(R.id.ResultOdai);
+                    happiness = happiness * 100;
+                    int i1 = (int)happiness;
 
-                    //惑星ごと表情判定
-                    String Sui = String.format("驚き　:%f\n",surprise);
-                    String Kin= String.format("ムカ　:%f\n", fear);
-                    String Ti= String.format("無表情:%f\n", neutral,sadness,surprise);
-                    String Ka= String.format("怒り　:%f\n",  anger);
-                    String Moku= String.format("笑顔　:%f\n",happiness);
-                    String Do= String.format("悲しみ:%f\n",sadness);
-                    String Ten= String.format("軽蔑　:%f\n",contempt);
-                    String Kai= String.format("恐怖　:%f\n",fear);
+
+
+                    TextView ResultOdai = getView().findViewById(R.id.ResultOdai);
+                    ImageView imageResultMonster = getView().findViewById(R.id.imageResultMonster);
+
+
 
                     Bundle bundle = getArguments();
                     if(bundle.getInt("惑星") == 1 ){
-                        ResultOdai.setText(Sui);
+                        ResultOdai.setText("");
                     }else if(bundle.getInt("惑星") == 2 ){
-                        ResultOdai.setText(Kin);
+                        ResultOdai.setText("");
                     }else if(bundle.getInt("惑星") == 3 ){
-                        ResultOdai.setText(Ti);
+                        ResultOdai.setText("");
                     }else if(bundle.getInt("惑星") == 4 ){
-                        ResultOdai.setText(Ka);
+                        ResultOdai.setText("");
                     }else if(bundle.getInt("惑星") == 5 ){
-                        ResultOdai.setText(Moku);
+                        //土星
+                        ResultOdai.setText(("笑顔達成度　　:" + i1 +"%"));
+                        imageResultMonster.setImageResource(R.drawable.image_buu2);
                     }else if(bundle.getInt("惑星") == 6 ){
-                        ResultOdai.setText(Do);
+
                     }else if(bundle.getInt("惑星") == 7 ){
-                        ResultOdai.setText(Ten);
+                        ResultOdai.setText("");
                     }else if(bundle.getInt("惑星") == 8 ){
-                        ResultOdai.setText(Kai);
+                        ResultOdai.setText("");
                     }
 
                 }catch (Exception e){
