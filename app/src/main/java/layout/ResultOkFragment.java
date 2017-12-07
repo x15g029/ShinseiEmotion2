@@ -90,6 +90,8 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener ,
 
                     TextView ResultOdai = getView().findViewById(R.id.ResultOdai);
                     ImageView imageResultMonster = getView().findViewById(R.id.imageResultMonster);
+                    ImageView imageResultText = getView().findViewById(R.id.imageResultText);
+                    ImageView btnStageSelect = getView().findViewById(R.id.btnStageSelect);
 
 
 
@@ -105,7 +107,16 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener ,
                     }else if(bundle.getInt("惑星") == 5 ){
                         //土星
                         ResultOdai.setText(("笑顔達成度　　:" + i1 +"%"));
-                        imageResultMonster.setImageResource(R.drawable.m_do1);
+
+                        if(i1 >= 80){
+                            imageResultMonster.setImageResource(R.drawable.m_do2);
+                            imageResultText.setImageResource(R.drawable.result_ok);
+                            btnStageSelect.setImageResource(R.drawable.map_back);
+                        }else{
+                            imageResultMonster.setImageResource(R.drawable.image_upup);
+                            imageResultText.setImageResource(R.drawable.image_ng);
+                            btnStageSelect.setImageResource(R.drawable.image_revenge);
+                        }
                     }else if(bundle.getInt("惑星") == 6 ){
 
                     }else if(bundle.getInt("惑星") == 7 ){
@@ -129,11 +140,9 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener ,
 
         //IDからオブジェクトを取得
         btn1 = (ImageButton) view.findViewById(R.id.btnStageSelect);
-        btn2 = (ImageButton) view.findViewById(R.id.btnRevenge);
 
         //ボタンをリスナーに登録
         btn1.setOnClickListener(this);
-        btn2.setOnClickListener(this);
     }
 
     @Override
