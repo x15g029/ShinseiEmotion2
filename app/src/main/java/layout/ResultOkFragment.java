@@ -75,17 +75,33 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener ,
                 try{
                     JSONObject jsonObject = (JSONObject)json.get(0);
                     JSONObject scores = (JSONObject)jsonObject.get("scores");
-                    double anger = scores.getDouble("anger");
-                    double contempt = scores.getDouble("contempt");
-                    double disgust = scores.getDouble("disgust");
-                    double fear = scores.getDouble("fear");
-                    double happiness = scores.getDouble("happiness");
-                    double neutral = scores.getDouble("neutral");
-                    double sadness = scores.getDouble("sadness");
-                    double surprise = scores.getDouble("surprise");
+                    double anger = scores.getDouble("anger");//怒り
+                    double contempt = scores.getDouble("contempt");//軽蔑
+                    double disgust = scores.getDouble("disgust");//嫌悪
+                    double fear = scores.getDouble("fear");//恐怖
+                    double happiness = scores.getDouble("happiness");//笑顔
+                    double neutral = scores.getDouble("neutral");//真顔
+                    double sadness = scores.getDouble("sadness");//悲しみ
+                    double surprise = scores.getDouble("surprise");//驚き
 
+
+                    anger = anger * 100;
+                    contempt = contempt * 100;
+                    disgust = disgust * 100;
+                    fear = fear * 100;
                     happiness = happiness * 100;
-                    int i1 = (int)happiness;
+                    neutral = neutral * 100;
+                    sadness = sadness * 100;
+                    surprise = surprise * 100;
+
+                    int i1 = (int) surprise;
+                    int i2 = (int) contempt;
+                    int i3 = (int) neutral;
+                    int i4 = (int) anger;
+                    int i5 = (int) happiness;
+                    int i6 = (int) sadness;
+                    int i7 = (int) fear;
+                    int i8 = (int) disgust;
 
 
 
@@ -98,40 +114,149 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener ,
 
                     Bundle bundle = getArguments();
                     if(bundle.getInt("惑星") == 1 ){
-                        ResultOdai.setText("");
+                        //水星
+                        ResultOdai.setText("驚き達成度　　:" + i1 +"%");
+                            if(i1 >= 80){
+                                imageResultMonster.setImageResource(R.drawable.m_sui2);
+                                imageResultText.setImageResource(R.drawable.result_ok);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.map_back);
+                            }else{
+                                imageResultMonster.setImageResource(R.drawable.image_chac);
+                                imageResultText.setImageResource(R.drawable.image_ng);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.image_revenge);
+                            }
                     }else if(bundle.getInt("惑星") == 2 ){
-                        ResultOdai.setText("");
+                        //金星
+                        ResultOdai.setText("軽蔑達成度　　:" + i2 +"%");
+                            if(i2 >= 80){
+                                imageResultMonster.setImageResource(R.drawable.m_kin2);
+                                imageResultText.setImageResource(R.drawable.result_ok);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.map_back);
+                            }else{
+                                imageResultMonster.setImageResource(R.drawable.image_kani);
+                                imageResultText.setImageResource(R.drawable.image_ng);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.image_revenge);
+                            }
                     }else if(bundle.getInt("惑星") == 3 ){
-                        ResultOdai.setText("");
+                        //地球
+                        ResultOdai.setText("真顔達成度　　:" + i3 +"%");
+                            if(i3 >= 80){
+                                imageResultMonster.setImageResource(R.drawable.m_ti2);
+                                imageResultText.setImageResource(R.drawable.result_ok);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.map_back);
+                            }else{
+                                imageResultMonster.setImageResource(R.drawable.m_ti1);
+                                imageResultText.setImageResource(R.drawable.image_ng);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.image_revenge);
+                            }
                     }else if(bundle.getInt("惑星") == 4 ){
-                        ResultOdai.setText("");
+                        //火星
+                        ResultOdai.setText("怒り達成度　　:" + i4 +"%");
+                            if(i4 >= 80){
+                                imageResultMonster.setImageResource(R.drawable.m_ka2);
+                                imageResultText.setImageResource(R.drawable.result_ok);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.map_back);
+                            }else{
+                                imageResultMonster.setImageResource(R.drawable.image_tako);
+                                imageResultText.setImageResource(R.drawable.image_ng);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.image_revenge);
+                            }
                     }else if(bundle.getInt("惑星") == 5 ){
-                        //土星
-                        ResultOdai.setText(("笑顔達成度　　:" + i1 +"%"));
-
-                        if(i1 >= 80){
-                            imageResultMonster.setImageResource(R.drawable.m_do2);
-                            imageResultText.setImageResource(R.drawable.result_ok);
-                            
-                            //写真を表示
-                            ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
-                            picView.setImageURI(Uri.fromFile(file));
-                            btnStageSelect.setImageResource(R.drawable.map_back);
-                        }else{
-                            imageResultMonster.setImageResource(R.drawable.image_upup);
-                            imageResultText.setImageResource(R.drawable.image_ng);
-
-                            //写真を表示
-                            ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
-                            picView.setImageURI(Uri.fromFile(file));
-                            btnStageSelect.setImageResource(R.drawable.image_revenge);
-                        }
+                        //木星
+                        ResultOdai.setText("笑顔達成度　　:" + i5 +"%");
+                            if(i5 >= 80){
+                                imageResultMonster.setImageResource(R.drawable.m_moku2);
+                                imageResultText.setImageResource(R.drawable.result_ok);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.map_back);
+                            }else{
+                                imageResultMonster.setImageResource(R.drawable.image_upup);
+                                imageResultText.setImageResource(R.drawable.image_ng);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.image_revenge);
+                            }
                     }else if(bundle.getInt("惑星") == 6 ){
-
+                        //土星
+                        ResultOdai.setText("悲しみ達成度　　:" + i6 +"%");
+                            if(i6 >= 80){
+                                imageResultMonster.setImageResource(R.drawable.m_do2);
+                                imageResultText.setImageResource(R.drawable.result_ok);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.map_back);
+                            }else{
+                                imageResultMonster.setImageResource(R.drawable.m_do1);
+                                imageResultText.setImageResource(R.drawable.image_ng);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.image_revenge);
+                            }
                     }else if(bundle.getInt("惑星") == 7 ){
-                        ResultOdai.setText("");
+                        //天王星
+                        ResultOdai.setText("恐怖達成度　　:" + i7 +"%");
+                            if(i7 >= 80){
+                                imageResultMonster.setImageResource(R.drawable.m_ten2);
+                                imageResultText.setImageResource(R.drawable.result_ok);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.map_back);
+                            }else{
+                                imageResultMonster.setImageResource(R.drawable.image_tensi);
+                                imageResultText.setImageResource(R.drawable.image_ng);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.image_revenge);
+                            }
                     }else if(bundle.getInt("惑星") == 8 ){
-                        ResultOdai.setText("");
+                        //海王星
+                        ResultOdai.setText("嫌悪達成度　　:" + i8 +"%");
+                            if(i8 >= 80){
+                                imageResultMonster.setImageResource(R.drawable.m_kai2);
+                                imageResultText.setImageResource(R.drawable.result_ok);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.map_back);
+                            }else{
+                                imageResultMonster.setImageResource(R.drawable.image_dh);
+                                imageResultText.setImageResource(R.drawable.image_ng);
+                                //写真を表示
+                                ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                                picView.setImageURI(Uri.fromFile(file));
+                                btnStageSelect.setImageResource(R.drawable.image_revenge);
+                            }
                     }
 
                 }catch (Exception e){
