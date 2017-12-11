@@ -36,6 +36,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener ,
     private ImageButton btn1;
     private ImageButton btn2;
     private String path;
+    private File file;
 
     public ResultOkFragment() {
         // Required empty public constructor
@@ -50,10 +51,10 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener ,
         //カメラで撮影した写真の一時保存データを取得  (よくわからんけどフィールドにしてある)
         path = getContext().getCacheDir()+"/emotionjudgment.jpg";
         //一時保存データのパスをFileにセット　（Uriで指定できるようにするため？）
-        File file = new File(path);
-        //写真を表示
-        ImageView picView = (ImageView)view.findViewById(R.id.imageResultPicture);
-        picView.setImageURI(Uri.fromFile(file));
+        file = new File(path);
+//        //写真を表示
+//        ImageView picView = (ImageView)view.findViewById(R.id.imageResultPicture);
+//        picView.setImageURI(Uri.fromFile(file));
 
         //エモーションエンジンの呼び出し
         EmotionEngine.getEmotion(path,this);
@@ -111,10 +112,18 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener ,
                         if(i1 >= 80){
                             imageResultMonster.setImageResource(R.drawable.m_do2);
                             imageResultText.setImageResource(R.drawable.result_ok);
+                            
+                            //写真を表示
+                            ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                            picView.setImageURI(Uri.fromFile(file));
                             btnStageSelect.setImageResource(R.drawable.map_back);
                         }else{
                             imageResultMonster.setImageResource(R.drawable.image_upup);
                             imageResultText.setImageResource(R.drawable.image_ng);
+
+                            //写真を表示
+                            ImageView picView = (ImageView)getView().findViewById(R.id.imageResultPicture);
+                            picView.setImageURI(Uri.fromFile(file));
                             btnStageSelect.setImageResource(R.drawable.image_revenge);
                         }
                     }else if(bundle.getInt("惑星") == 6 ){

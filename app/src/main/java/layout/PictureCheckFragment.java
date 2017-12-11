@@ -82,8 +82,8 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
                     double surprise = scores.getDouble("surprise");
 
                     TextView text = getView().findViewById(R.id.textStatus);
-                    String msg = String.format("怒り　:%f\n軽蔑　:%f\nムカ　:%f\n恐れ　:%f\n喜び　:%f\n無表情:%f\n悲しみ:%f\n驚き　:%f\n",
-                            anger,contempt,disgust,fear,happiness,neutral,sadness,surprise);
+//                    String msg = String.format("怒り　:%f\n軽蔑　:%f\nムカ　:%f\n恐れ　:%f\n喜び　:%f\n無表情:%f\n悲しみ:%f\n驚き　:%f\n",
+//                            anger,contempt,disgust,fear,happiness,neutral,sadness,surprise);
 
                     String msg1 = String.format("怒り　:%f\n笑顔　:%f\n真顔　:%f\n哀愁　:%f\n",
                             anger,happiness,neutral,sadness);
