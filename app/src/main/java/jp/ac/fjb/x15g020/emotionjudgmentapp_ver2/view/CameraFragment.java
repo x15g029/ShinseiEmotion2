@@ -11,17 +11,12 @@ import android.view.MotionEvent;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.CameraPreview;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.EmotionEngine;
-import layout.EncounterSuiFragment;
 import layout.PictureCheckFragment;
 
 /**
@@ -169,39 +164,29 @@ public class CameraFragment extends Fragment implements View.OnTouchListener ,Em
 	}
 
 	@Override
-	public void onEmotion(JSONArray json) {
+	public void onEmotion(EmotionEngine.EmotionParam[] params) {
 		if(getContext()==null)
 			return;
-		if(json == null)
+		if(params == null)
 			Toast.makeText(getContext(), "接続エラー", Toast.LENGTH_SHORT).show();
-
 		else{
-			if(json.length() == 0)
+			if(params.length==0)
 				Toast.makeText(getContext(), "顔検出エラー", Toast.LENGTH_SHORT).show();
 			else{
-				try{
-					JSONObject jsonObject = (JSONObject)json.get(0);
-					JSONObject scores = (JSONObject)jsonObject.get("scores");
-					double anger = scores.getDouble("anger");
-					double contempt = scores.getDouble("contempt");
-					double disgust = scores.getDouble("disgust");
-					double fear = scores.getDouble("fear");
-					double happiness = scores.getDouble("happiness");
-					double neutral = scores.getDouble("neutral");
-					double sadness = scores.getDouble("sadness");
-					double surprise = scores.getDouble("surprise");
-
-					TextView text = getView().findViewById(R.id.textStatus);
-					String msg = String.format("怒り　:%f\n軽蔑　:%f\nムカ　:%f\n恐れ　:%f\n喜び　:%f\n無表情:%f\n悲しみ:%f\n驚き　:%f\n",
-                            anger,contempt,disgust,fear,happiness,neutral,sadness,surprise);
-					text.setText(msg);
-				}catch (Exception e){
-					Toast.makeText(getContext(), "データエラー", Toast.LENGTH_SHORT).show();
-				}
+				EmotionEngine.EmotionParam p = params[0];
+				TextView text = getView().findViewById(R.id.textStatus);
+				String msg = String.format("怒り　:%f\n軽蔑　:%f\nムカ　:%f\n恐れ　:%f\n喜び　:%f\n無表情:%f\n悲しみ:%f\n驚き　:%f\n",
+					p.anger,params[0].contempt,p.disgust,p.fear,p.happiness,p.neutral,p.sadness,p.surprise);
+				text.setText(msg);
 			}
+
 		}
 	}
 
+	@Override
+	public void onProgress(Long sizeTotal, Long sizeCurrent) {
+		System.out.format("%d/%d\n",sizeCurrent,sizeTotal);
+	}
 
 
 }
