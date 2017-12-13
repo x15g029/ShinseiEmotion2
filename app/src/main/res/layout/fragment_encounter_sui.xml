@@ -35,15 +35,11 @@
         android:background="@drawable/back"
         android:scaleX="0.5"
         android:scaleY="0.5"
-<<<<<<< HEAD
         app:srcCompat="@drawable/selector" />
-=======
-        app:srcCompat="@drawable/back" />
 
     <TextView
         android:id="@+id/test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
->>>>>>> origin/matukura
 </LinearLayout>
