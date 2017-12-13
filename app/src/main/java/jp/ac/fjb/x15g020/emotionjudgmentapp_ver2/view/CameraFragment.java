@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ import org.json.JSONObject;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.CameraPreview;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.EmotionEngine;
+import layout.EncounterSuiFragment;
 import layout.PictureCheckFragment;
 
 /**
@@ -85,9 +87,72 @@ public class CameraFragment extends Fragment implements View.OnTouchListener ,Em
 		mCamera.setSaveListener(new CameraPreview.SaveListener() {
 			@Override
 			public void onSave(Bitmap bitmap) {
-				FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-				ft2.replace(R.id.layout_main,new PictureCheckFragment());
-				ft2.commit();
+				Bundle bundle = getArguments();
+				if(bundle.getInt("惑星") == 1 ){
+					bundle.putInt("惑星",1);
+					FragmentTransaction ft = getFragmentManager().beginTransaction();
+					Fragment f = new PictureCheckFragment();
+					f.setArguments(bundle);
+					ft.replace(R.id.layout_main,f);
+					ft.commit();
+
+				}else if(bundle.getInt("惑星") == 2 ){
+					bundle.putInt("惑星",2);
+					FragmentTransaction ft = getFragmentManager().beginTransaction();
+					Fragment f = new PictureCheckFragment();
+					f.setArguments(bundle);
+					ft.replace(R.id.layout_main,f);
+					ft.commit();
+
+				}else if(bundle.getInt("惑星") == 3 ){
+					bundle.putInt("惑星",3);
+					FragmentTransaction ft = getFragmentManager().beginTransaction();
+					Fragment f = new PictureCheckFragment();
+					f.setArguments(bundle);
+					ft.replace(R.id.layout_main,f);
+					ft.commit();
+
+				}else if(bundle.getInt("惑星") == 4 ){
+					bundle.putInt("惑星",4);
+					FragmentTransaction ft = getFragmentManager().beginTransaction();
+					Fragment f = new PictureCheckFragment();
+					f.setArguments(bundle);
+					ft.replace(R.id.layout_main,f);
+					ft.commit();
+
+				}else if(bundle.getInt("惑星") == 5 ){
+					bundle.putInt("惑星",5);
+					FragmentTransaction ft = getFragmentManager().beginTransaction();
+					Fragment f = new PictureCheckFragment();
+					f.setArguments(bundle);
+					ft.replace(R.id.layout_main,f);
+					ft.commit();
+
+				}else if(bundle.getInt("惑星") == 6 ){
+					bundle.putInt("惑星",6);
+					FragmentTransaction ft = getFragmentManager().beginTransaction();
+					Fragment f = new PictureCheckFragment();
+					f.setArguments(bundle);
+					ft.replace(R.id.layout_main,f);
+					ft.commit();
+
+				}else if(bundle.getInt("惑星") == 7 ){
+					bundle.putInt("惑星",7);
+					FragmentTransaction ft = getFragmentManager().beginTransaction();
+					Fragment f = new PictureCheckFragment();
+					f.setArguments(bundle);
+					ft.replace(R.id.layout_main,f);
+					ft.commit();
+
+				}else if(bundle.getInt("惑星") == 8 ){
+					bundle.putInt("惑星",8);
+					FragmentTransaction ft = getFragmentManager().beginTransaction();
+					Fragment f = new PictureCheckFragment();
+					f.setArguments(bundle);
+					ft.replace(R.id.layout_main,f);
+					ft.commit();
+
+				}
 			}
 		});
 		//写真撮影
@@ -128,7 +193,7 @@ public class CameraFragment extends Fragment implements View.OnTouchListener ,Em
 
 					TextView text = getView().findViewById(R.id.textStatus);
 					String msg = String.format("怒り　:%f\n軽蔑　:%f\nムカ　:%f\n恐れ　:%f\n喜び　:%f\n無表情:%f\n悲しみ:%f\n驚き　:%f\n",
-							anger,contempt,disgust,fear,happiness,neutral,sadness,surprise);
+                            anger,contempt,disgust,fear,happiness,neutral,sadness,surprise);
 					text.setText(msg);
 				}catch (Exception e){
 					Toast.makeText(getContext(), "データエラー", Toast.LENGTH_SHORT).show();

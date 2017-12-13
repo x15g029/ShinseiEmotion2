@@ -37,9 +37,4 @@
         android:scaleY="0.5"
         app:srcCompat="@drawable/selector" />
 
-    <TextView
-        android:id="@+id/test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
 </LinearLayout>

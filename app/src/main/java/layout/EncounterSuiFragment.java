@@ -30,6 +30,7 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
 
     private ImageButton btn1;
     private ImageButton btn2;
+    private Bundle bundle;
 
     public EncounterSuiFragment() {
         // Required empty public constructor
@@ -54,48 +55,56 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
         super.onViewCreated(view, savedInstanceState);
 
         //惑星ごとの宇宙人を表示
-        Bundle bundle = getArguments();
+        bundle = getArguments();
 //        System.out.println("送られてきたデータ:"+bundle.getInt("惑星"));
         if(bundle.getInt("惑星") == 1 ){
+            //水星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
             Odai.setImageResource(R.drawable.odai1);
-            Monster.setImageResource(R.drawable.image_chac);
+            Monster.setImageResource(R.drawable.m_sui1);
         }else if(bundle.getInt("惑星") == 2 ){
+            //金星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
             Odai.setImageResource(R.drawable.odai2);
-            Monster.setImageResource(R.drawable.image_kani);
+            Monster.setImageResource(R.drawable.m_kin1);
         }else if(bundle.getInt("惑星") == 3 ){
+            //地球
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
             Odai.setImageResource(R.drawable.odai3);
-            Monster.setImageResource(R.drawable.image_guide);
+            Monster.setImageResource(R.drawable.m_ti1);
         }else if(bundle.getInt("惑星") == 4 ){
+            //火星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
             Odai.setImageResource(R.drawable.odai4);
-            Monster.setImageResource(R.drawable.image_tako);
+            Monster.setImageResource(R.drawable.m_ka1);
         }else if(bundle.getInt("惑星") == 5 ){
+            //木星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
             Odai.setImageResource(R.drawable.odai5);
-            Monster.setImageResource(R.drawable.image_upup);
+            Monster.setImageResource(R.drawable.m_moku1);
         }else if(bundle.getInt("惑星") == 6 ){
+            //土星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
             Odai.setImageResource(R.drawable.odai6);
-            Monster.setImageResource(R.drawable.image_guide);
+            Monster.setImageResource(R.drawable.m_do1);
         }else if(bundle.getInt("惑星") == 7 ){
+            //天王星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
             Odai.setImageResource(R.drawable.odai7);
-            Monster.setImageResource(R.drawable.image_tensi);
+            Monster.setImageResource(R.drawable.m_ten1);
         }else if(bundle.getInt("惑星") == 8 ){
+            //海王星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
             Odai.setImageResource(R.drawable.odai8);
-            Monster.setImageResource(R.drawable.image_dh);
+            Monster.setImageResource(R.drawable.m_kai1);
         }
 
 
@@ -117,15 +126,77 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
     public void onClick(View view) {
         if(view.getId() == R.id.btnCamera) {
             //カメラ 押下時
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.layout_main, new CameraFragment());
-            ft.commit();
+            if(bundle.getInt("惑星") == 1 ){
+                //水星  押下時
+                bundle.putInt("惑星",1);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment f = new CameraFragment();
+                f.setArguments(bundle);
+                ft.replace(R.id.layout_main,f);
+                ft.commit();
+            }else if(bundle.getInt("惑星") == 2 ){
+                //金星  押下時
+                bundle.putInt("惑星",2);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment f = new CameraFragment();
+                f.setArguments(bundle);
+                ft.replace(R.id.layout_main,f);
+                ft.commit();
+            }else if(bundle.getInt("惑星") == 3 ){
+                //地球  押下時
+                bundle.putInt("惑星",3);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment f = new CameraFragment();
+                f.setArguments(bundle);
+                ft.replace(R.id.layout_main,f);
+                ft.commit();
+            }else if(bundle.getInt("惑星") == 4 ){
+                //火星  押下時
+                bundle.putInt("惑星",4);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment f = new CameraFragment();
+                f.setArguments(bundle);
+                ft.replace(R.id.layout_main,f);
+                ft.commit();
+            }else if(bundle.getInt("惑星") == 5 ){
+                //木星  押下時
+                bundle.putInt("惑星",5);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment f = new CameraFragment();
+                f.setArguments(bundle);
+                ft.replace(R.id.layout_main,f);
+                ft.commit();
+            }else if(bundle.getInt("惑星") == 6 ){
+                //土星  押下時
+                bundle.putInt("惑星",6);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment f = new CameraFragment();
+                f.setArguments(bundle);
+                ft.replace(R.id.layout_main,f);
+                ft.commit();
+            }else if(bundle.getInt("惑星") == 7 ){
+                //天王星  押下時
+                bundle.putInt("惑星",7);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment f = new CameraFragment();
+                f.setArguments(bundle);
+                ft.replace(R.id.layout_main,f);
+                ft.commit();
+            }else if(bundle.getInt("惑星") == 8 ){
+                //海王星  押下時
+                bundle.putInt("惑星",8);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment f = new CameraFragment();
+                f.setArguments(bundle);
+                ft.replace(R.id.layout_main,f);
+                ft.commit();
+            }
         }else{
             //戻る  押下時
-            FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-            ft2.replace(R.id.layout_main,new MapFragment());
-            ft2.commit();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.layout_main, new MapFragment());
+            ft.commit();
+            }
         }
     }
 
-}
