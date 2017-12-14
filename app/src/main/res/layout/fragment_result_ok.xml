@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/resultView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/image_back"
     android:orientation="vertical">
 
@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:scaleType="fitCenter"/>
+                android:scaleType="fitCenter" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,8 +46,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="#FFFFFF"
                     android:text=""
+                    android:textColor="#FFFFFF"
                     android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
@@ -77,4 +77,10 @@
             app:srcCompat="@drawable/map_back" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/sinkoudo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 </LinearLayout>

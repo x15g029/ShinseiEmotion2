@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/decelerate_interpolator"
+
+    android:fromXDelta="100%p"
+    android:fromYDelta="20%p"
+    android:toXDelta="25%p"
+    android:toYDelta="20%p"
+    android:fillAfter="true"
+    android:duration="3000" />
+
+<!--fromXDelta：開始時のx位置
+    fromYDelta：開始時のy位置
+    toXDelta：終了時のx位置
+    toYDelta：終了時のy位置
+    fillAfter：アニメーション終了時にそのままにする(true)
+    duration：アニメーション期間[msec]
+-->
