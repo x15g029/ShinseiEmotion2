@@ -19,6 +19,7 @@ import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
  */
 public class OpeningFragment extends Fragment {
 
+    //タイプライター風
     private TextView textView;
     String put_txt =
             "宇宙から地球を見下ろした\n" +
