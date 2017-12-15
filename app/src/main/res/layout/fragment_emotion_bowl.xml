@@ -1,0 +1,47 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.EmotionBowlFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:id="@+id/Layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="表情ボール一覧" />
+
+        <ImageView
+            android:id="@+id/imageBowl"
+            android:layout_width="110dp"
+            android:layout_height="121dp" />
+
+        <ImageView
+            android:id="@+id/bowl2"
+            android:layout_width="116dp"
+            android:layout_height="112dp"
+            android:layout_weight="0.02" />
+
+        <ImageView
+            android:id="@+id/bowl3"
+            android:layout_width="112dp"
+            android:layout_height="138dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MAPへ" />
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -54,7 +54,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
 
         if(AppLaunchChecker.hasStartedFromLauncher(getContext())){
             //二度目の起動
-            ft.replace(R.id.layout_main, new GaidoStartFragment());
+            ft.replace(R.id.layout_main, new MapFragment());
             ft.commit();
         }else{
             //初回起動

@@ -1,6 +1,7 @@
 package layout;
 
 
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,23 +10,27 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.util.prefs.Preferences;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.EmotionEngine;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraFragment;
+
+import static junit.runner.BaseTestRunner.getPreference;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ResultOkFragment extends Fragment implements View.OnClickListener, EmotionEngine.EmotionListener {
 	private ImageButton btn1;
-	private ImageButton btn2;
+	private Button btn2;
 	private String path;
 	private File file;
 
@@ -128,6 +133,23 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 				} else if (bundle.getInt("惑星") == 3) {
 					//地球
 					ResultOdai.setText("真顔達成度　　:" + i3 + "%");
+					//表情ボールを渡すとこを今日から試行錯誤していきます
+					//とりあえず、表情ボール一覧のフラグメント作ったから
+					//ここの結果で、初めて９０％を出した時にのみ、表情ボールを渡すっていう文を書きたい
+					if (i3 >= 90){
+						//表情ボール一覧に表示する画像のソースをプリファレンスに保存
+						// プリファレンスの準備 //
+						SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
+						// プリファレンスに書き込むためのEditorオブジェクト取得
+						SharedPreferences.Editor editor = pref.edit();
+						//表情ボールパスをセット
+						editor.putString("bowl","クリア");
+						editor.commit();
+
+						//新しいImegeViewを生成して、表情ボールを渡すシーン
+						ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
+						bowlageru.setImageResource(R.drawable.bowl1);
+					}
 					if (i3 >= 80) {
 						imageResultMonster.setImageResource(R.drawable.m_ti2);
 						imageResultText.setImageResource(R.drawable.result_ok);
@@ -252,9 +274,11 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 
 		//IDからオブジェクトを取得
 		btn1 = (ImageButton) view.findViewById(R.id.btnStageSelect);
+		btn2 = (Button) view.findViewById(R.id.b1);
 
 		//ボタンをリスナーに登録
 		btn1.setOnClickListener(this);
+		btn2.setOnClickListener(this);
 	}
 
 	@Override
@@ -264,10 +288,10 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 			FragmentTransaction ft = getFragmentManager().beginTransaction();
 			ft.replace(R.id.layout_main, new MapFragment());
 			ft.commit();
-		} else {
+		} else if(view.getId() == R.id.b1){
 			//もう一度  押下時
 			FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-			ft2.replace(R.id.layout_main, new CameraFragment());
+			ft2.replace(R.id.layout_main, new EmotionBowlFragment());
 			ft2.commit();
 		}
 	}

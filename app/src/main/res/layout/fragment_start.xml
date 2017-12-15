@@ -36,6 +36,7 @@
             android:layout_marginTop="130px"
             android:background="@null"
             app:srcCompat="@drawable/image_stert" />
+
     </LinearLayout>
 
 

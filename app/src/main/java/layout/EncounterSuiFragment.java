@@ -61,49 +61,49 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
             //水星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
-            Odai.setImageResource(R.drawable.odai1);
+            Odai.setImageResource(R.drawable.odai_odoroki);
             Monster.setImageResource(R.drawable.m_sui1);
         }else if(bundle.getInt("惑星") == 2 ){
             //金星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
-            Odai.setImageResource(R.drawable.odai2);
+            Odai.setImageResource(R.drawable.odai_keibetu);
             Monster.setImageResource(R.drawable.m_kin1);
         }else if(bundle.getInt("惑星") == 3 ){
             //地球
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
-            Odai.setImageResource(R.drawable.odai3);
+            Odai.setImageResource(R.drawable.odai_egao);
             Monster.setImageResource(R.drawable.m_ti1);
         }else if(bundle.getInt("惑星") == 4 ){
             //火星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
-            Odai.setImageResource(R.drawable.odai4);
+            Odai.setImageResource(R.drawable.odai_ikari);
             Monster.setImageResource(R.drawable.m_ka1);
         }else if(bundle.getInt("惑星") == 5 ){
             //木星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
-            Odai.setImageResource(R.drawable.odai5);
+            Odai.setImageResource(R.drawable.odai_egao);
             Monster.setImageResource(R.drawable.m_moku1);
         }else if(bundle.getInt("惑星") == 6 ){
             //土星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
-            Odai.setImageResource(R.drawable.odai6);
+            Odai.setImageResource(R.drawable.odai_kanasimi);
             Monster.setImageResource(R.drawable.m_do1);
         }else if(bundle.getInt("惑星") == 7 ){
             //天王星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
-            Odai.setImageResource(R.drawable.odai7);
+            Odai.setImageResource(R.drawable.odai_kexno);
             Monster.setImageResource(R.drawable.m_ten1);
         }else if(bundle.getInt("惑星") == 8 ){
             //海王星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
-            Odai.setImageResource(R.drawable.odai8);
+            Odai.setImageResource(R.drawable.odai_kyouhu);
             Monster.setImageResource(R.drawable.m_kai1);
         }
 
