@@ -52,6 +52,20 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 //        ImageView picView = (ImageView)view.findViewById(R.id.imageResultPicture);
 //        picView.setImageURI(Uri.fromFile(file));
 
+//		// プリファレンスの準備 //
+//		SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
+//		// プリファレンスに書き込むためのEditorオブジェクト取得
+//		SharedPreferences.Editor editor = pref.edit();
+//		//表情ボールパスをセット
+//		editor.putString("bowlsui","");
+//		editor.putString("bowlkin","");
+//		editor.putString("bowlka","");
+//		editor.putString("bowlmoku","");
+//		editor.putString("bowldo","");
+//		editor.putString("bowlten","");
+//		editor.putString("bowlkai","");
+//		editor.commit();
+
 		//エモーションエンジンの呼び出し
 		EmotionEngine.getEmotion(path, this);
 		return view;
@@ -97,6 +111,19 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 				if (bundle.getInt("惑星") == 1) {
 					//水星
 					ResultOdai.setText("驚き達成度　　:" + i1 + "%");
+					if (i1 >= 0){
+						// プリファレンスの準備 //
+						SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
+						// プリファレンスに書き込むためのEditorオブジェクト取得
+						SharedPreferences.Editor editor = pref.edit();
+						//表情ボールパスをセット
+						editor.putString("bowlsui","クリア");
+						editor.commit();
+
+						//新しいImegeViewを生成して、表情ボールを渡すシーン
+						ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
+						bowlageru.setImageResource(R.drawable.bowl1);
+					}
 					if (i1 >= 80) {
 						imageResultMonster.setImageResource(R.drawable.m_sui2);
 						imageResultText.setImageResource(R.drawable.result_ok);
@@ -115,6 +142,19 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 				} else if (bundle.getInt("惑星") == 2) {
 					//金星
 					ResultOdai.setText("軽蔑達成度　　:" + i2 + "%");
+					if (i2 >= 0){
+						// プリファレンスの準備 //
+						SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
+						// プリファレンスに書き込むためのEditorオブジェクト取得
+						SharedPreferences.Editor editor = pref.edit();
+						//表情ボールパスをセット
+						editor.putString("bowlkin","クリア");
+						editor.commit();
+
+						//新しいImegeViewを生成して、表情ボールを渡すシーン
+						ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
+						bowlageru.setImageResource(R.drawable.bowl2);
+					}
 					if (i2 >= 80) {
 						imageResultMonster.setImageResource(R.drawable.m_kin2);
 						imageResultText.setImageResource(R.drawable.result_ok);
@@ -133,22 +173,18 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 				} else if (bundle.getInt("惑星") == 3) {
 					//地球
 					ResultOdai.setText("真顔達成度　　:" + i3 + "%");
-					//表情ボールを渡すとこを今日から試行錯誤していきます
-					//とりあえず、表情ボール一覧のフラグメント作ったから
-					//ここの結果で、初めて９０％を出した時にのみ、表情ボールを渡すっていう文を書きたい
-					if (i3 >= 90){
-						//表情ボール一覧に表示する画像のソースをプリファレンスに保存
+					if (i3 >= 0){
 						// プリファレンスの準備 //
 						SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 						// プリファレンスに書き込むためのEditorオブジェクト取得
 						SharedPreferences.Editor editor = pref.edit();
 						//表情ボールパスをセット
-						editor.putString("bowl","クリア");
+						editor.putString("bowlti","クリア");
 						editor.commit();
 
 						//新しいImegeViewを生成して、表情ボールを渡すシーン
 						ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-						bowlageru.setImageResource(R.drawable.bowl1);
+						bowlageru.setImageResource(R.drawable.bowl8);
 					}
 					if (i3 >= 80) {
 						imageResultMonster.setImageResource(R.drawable.m_ti2);
@@ -168,6 +204,19 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 				} else if (bundle.getInt("惑星") == 4) {
 					//火星
 					ResultOdai.setText("怒り達成度　　:" + i4 + "%");
+					if (i4 >= 0){
+						// プリファレンスの準備 //
+						SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
+						// プリファレンスに書き込むためのEditorオブジェクト取得
+						SharedPreferences.Editor editor = pref.edit();
+						//表情ボールパスをセット
+						editor.putString("bowlka","クリア");
+						editor.commit();
+
+						//新しいImegeViewを生成して、表情ボールを渡すシーン
+						ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
+						bowlageru.setImageResource(R.drawable.bowl3);
+					}
 					if (i4 >= 80) {
 						imageResultMonster.setImageResource(R.drawable.m_ka2);
 						imageResultText.setImageResource(R.drawable.result_ok);
@@ -186,6 +235,19 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 				} else if (bundle.getInt("惑星") == 5) {
 					//木星
 					ResultOdai.setText("笑顔達成度　　:" + i5 + "%");
+					if (i5 >= 0){
+						// プリファレンスの準備 //
+						SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
+						// プリファレンスに書き込むためのEditorオブジェクト取得
+						SharedPreferences.Editor editor = pref.edit();
+						//表情ボールパスをセット
+						editor.putString("bowlmoku","クリア");
+						editor.commit();
+
+						//新しいImegeViewを生成して、表情ボールを渡すシーン
+						ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
+						bowlageru.setImageResource(R.drawable.bowl4);
+					}
 					if (i5 >= 80) {
 						imageResultMonster.setImageResource(R.drawable.m_moku2);
 						imageResultText.setImageResource(R.drawable.result_ok);
@@ -204,6 +266,19 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 				} else if (bundle.getInt("惑星") == 6) {
 					//土星
 					ResultOdai.setText("悲しみ達成度　　:" + i6 + "%");
+					if (i6 >= 0){
+						// プリファレンスの準備 //
+						SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
+						// プリファレンスに書き込むためのEditorオブジェクト取得
+						SharedPreferences.Editor editor = pref.edit();
+						//表情ボールパスをセット
+						editor.putString("bowldo","クリア");
+						editor.commit();
+
+						//新しいImegeViewを生成して、表情ボールを渡すシーン
+						ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
+						bowlageru.setImageResource(R.drawable.bowl5);
+					}
 					if (i6 >= 80) {
 						imageResultMonster.setImageResource(R.drawable.m_do2);
 						imageResultText.setImageResource(R.drawable.result_ok);
@@ -222,6 +297,19 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 				} else if (bundle.getInt("惑星") == 7) {
 					//天王星
 					ResultOdai.setText("恐怖達成度　　:" + i7 + "%");
+					if (i7 >= 0){
+						// プリファレンスの準備 //
+						SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
+						// プリファレンスに書き込むためのEditorオブジェクト取得
+						SharedPreferences.Editor editor = pref.edit();
+						//表情ボールパスをセット
+						editor.putString("bowlten","クリア");
+						editor.commit();
+
+						//新しいImegeViewを生成して、表情ボールを渡すシーン
+						ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
+						bowlageru.setImageResource(R.drawable.bowl6);
+					}
 					if (i7 >= 80) {
 						imageResultMonster.setImageResource(R.drawable.m_ten2);
 						imageResultText.setImageResource(R.drawable.result_ok);
@@ -240,6 +328,19 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 				} else if (bundle.getInt("惑星") == 8) {
 					//海王星
 					ResultOdai.setText("嫌悪達成度　　:" + i8 + "%");
+					if (i8 >= 0){
+						// プリファレンスの準備 //
+						SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
+						// プリファレンスに書き込むためのEditorオブジェクト取得
+						SharedPreferences.Editor editor = pref.edit();
+						//表情ボールパスをセット
+						editor.putString("bowlkai","クリア");
+						editor.commit();
+
+						//新しいImegeViewを生成して、表情ボールを渡すシーン
+						ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
+						bowlageru.setImageResource(R.drawable.bowl7);
+					}
 					if (i8 >= 80) {
 						imageResultMonster.setImageResource(R.drawable.m_kai2);
 						imageResultText.setImageResource(R.drawable.result_ok);

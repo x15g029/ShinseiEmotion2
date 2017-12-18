@@ -46,14 +46,54 @@ public class EmotionBowlFragment extends Fragment implements View.OnClickListene
         SharedPreferences pref =
                 getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 
-        // "bowl1" というキーで保存されている値を読み出す
-        ImageView imageBowl = (ImageView)getView().findViewById(R.id.imageBowl);
-        String hoge = pref.getString("bowl","");
-        String huga = "クリア";
+        // インスタンス取得
+        ImageView viewSui = (ImageView)getView().findViewById(R.id.imageBowlSui);
+        ImageView viewKin = (ImageView)getView().findViewById(R.id.imageBowlKin);
+        ImageView viewKa = (ImageView)getView().findViewById(R.id.imageBowlKa);
+        ImageView viewMoku = (ImageView)getView().findViewById(R.id.imageBowlMoku);
+        ImageView viewDo = (ImageView)getView().findViewById(R.id.imageBowlDo);
+        ImageView viewTen = (ImageView)getView().findViewById(R.id.imageBowlTen);
+        ImageView viewKai = (ImageView)getView().findViewById(R.id.imageBowlKai);
+
+        //データセット
+        String keySui = pref.getString("bowlsui","");
+        String keyKin = pref.getString("bowlkin","");
+        String keyKa = pref.getString("bowlka","");
+        String keyMoku = pref.getString("bowlmoku","");
+        String keyDo = pref.getString("bowldo","");
+        String keyTen = pref.getString("bowlten","");
+        String keyKai = pref.getString("bowlkai","");
+
+        String clear = "クリア";
 
 
-        if(hoge.equals(huga)){
-            imageBowl.setImageResource(R.drawable.bowl1);
+        //クリアしている惑星の水晶を表示
+        if(keySui.equals(clear)){
+            viewSui.setImageResource(R.drawable.bowl1);
+        }
+
+        if(keyKin.equals(clear)){
+            viewKin.setImageResource(R.drawable.bowl2);
+        }
+
+        if(keyKa.equals(clear)){
+            viewKa.setImageResource(R.drawable.bowl3);
+        }
+
+        if(keyMoku.equals(clear)){
+            viewMoku.setImageResource(R.drawable.bowl4);
+        }
+
+        if(keyDo.equals(clear)){
+            viewDo.setImageResource(R.drawable.bowl5);
+        }
+
+        if(keyTen.equals(clear)){
+            viewTen.setImageResource(R.drawable.bowl6);
+        }
+
+        if(keyKai.equals(clear)){
+            viewKai.setImageResource(R.drawable.bowl7);
         }
 
 

@@ -14,27 +14,67 @@
         android:orientation="vertical"
         android:weightSum="1">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageBowlSui"
+            android:layout_width="84dp"
+            android:layout_height="77dp"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="50dp"
+            android:layout_weight="0.02"
+            android:paddingTop="10dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="表情ボール一覧" />
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageBowl"
-            android:layout_width="110dp"
-            android:layout_height="121dp" />
+            <ImageView
+                android:id="@+id/imageBowlKin"
+                android:layout_width="83dp"
+                android:layout_height="85dp"
+                android:layout_marginLeft="30dp" />
 
-        <ImageView
-            android:id="@+id/bowl2"
-            android:layout_width="116dp"
-            android:layout_height="112dp"
-            android:layout_weight="0.02" />
+            <ImageView
+                android:id="@+id/imageBowlKa"
+                android:layout_width="83dp"
+                android:layout_height="85dp"
+                android:layout_marginLeft="145dp" />
+        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/bowl3"
-            android:layout_width="112dp"
-            android:layout_height="138dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageBowlMoku"
+                android:layout_width="83dp"
+                android:layout_height="87dp" />
+
+            <ImageView
+                android:id="@+id/imageBowlDo"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="170dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageBowlTen"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_marginLeft="70dp" />
+
+            <ImageView
+                android:id="@+id/imageBowlKai"
+                android:layout_width="90dp"
+                android:layout_height="81dp"
+                android:layout_marginLeft="50dp" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/button"
