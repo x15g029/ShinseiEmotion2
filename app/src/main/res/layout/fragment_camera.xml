@@ -6,23 +6,28 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextureView
-        android:id="@+id/textureCamera"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/image_back"
+        android:gravity="center">
 
-        <TextView
-            android:id="@+id/textStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:text="" />
+        <TextureView
+            android:id="@+id/textureCamera"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textStatus"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView" />
 </FrameLayout>

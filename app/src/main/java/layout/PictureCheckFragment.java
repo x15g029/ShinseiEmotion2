@@ -31,6 +31,15 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
     private ImageButton btn2;
     private String path;
     private Bundle bundle;
+    private int i1;
+    private int i2;
+    private int i3;
+    private int i4;
+    private int i5;
+    private int i6;
+    private int i7;
+    private int i8;
+    private Bundle bundle2;
 
     public PictureCheckFragment() {
         // Required empty public constructor
@@ -66,14 +75,23 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
                 Toast.makeText(getContext(), "顔検出エラー", Toast.LENGTH_SHORT).show();
             else {
                 EmotionEngine.EmotionParam p = params[0];
-                TextView text = getView().findViewById(R.id.textStatus);
-//                    String msg = String.format("怒り　:%f\n軽蔑　:%f\nムカ　:%f\n恐れ　:%f\n喜び　:%f\n無表情:%f\n悲しみ:%f\n驚き　:%f\n",
-//                            anger,contempt,disgust,fear,happiness,neutral,sadness,surprise);
+                double anger = p.anger * 100;
+                double contempt = p.contempt * 100;
+                double disgust = p.disgust * 100;
+                double fear = p.fear * 100;
+                double happiness = p.happiness * 100;
+                double neutral = p.neutral * 100;
+                double sadness = p.sadness * 100;
+                double surprise = p.surprise * 100;
 
-                String msg1 = String.format("怒り　:%f\n笑顔　:%f\n真顔　:%f\n哀愁　:%f\n",
-                    p.anger, p.happiness, p.neutral, p.sadness);
-                text.setText(msg1);
-                //text.setText(msg);
+                 i1 = (int) surprise;
+                 i2 = (int) contempt;
+                 i3 = (int) neutral;
+                 i4 = (int) anger;
+                 i5 = (int) happiness;
+                 i6 = (int) sadness;
+                 i7 = (int) fear;
+                 i8 = (int) disgust;
             }
         }
     }
@@ -174,6 +192,7 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
             if(bundle.getInt("惑星") == 1 ){
                 //水星  押下時
                 bundle.putInt("惑星",1);
+                bundle.putInt("結果1",i1);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Fragment f = new ResultOkFragment();
                 f.setArguments(bundle);
@@ -182,6 +201,7 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
             }else if(bundle.getInt("惑星") == 2 ){
                 //金星  押下時
                 bundle.putInt("惑星",2);
+                bundle.putInt("結果2",i2);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Fragment f = new ResultOkFragment();
                 f.setArguments(bundle);
@@ -190,6 +210,7 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
             }else if(bundle.getInt("惑星") == 3 ){
                 //地球  押下時
                 bundle.putInt("惑星",3);
+                bundle.putInt("結果3",i3);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Fragment f = new ResultOkFragment();
                 f.setArguments(bundle);
@@ -198,6 +219,7 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
             }else if(bundle.getInt("惑星") == 4 ){
                 //火星  押下時
                 bundle.putInt("惑星",4);
+                bundle.putInt("結果4",i4);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Fragment f = new ResultOkFragment();
                 f.setArguments(bundle);
@@ -206,6 +228,7 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
             }else if(bundle.getInt("惑星") == 5 ){
                 //木星  押下時
                 bundle.putInt("惑星",5);
+                bundle.putInt("結果5",i5);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Fragment f = new ResultOkFragment();
                 f.setArguments(bundle);
@@ -214,6 +237,7 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
             }else if(bundle.getInt("惑星") == 6 ){
                 //土星  押下時
                 bundle.putInt("惑星",6);
+                bundle.putInt("結果6",i6);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Fragment f = new ResultOkFragment();
                 f.setArguments(bundle);
@@ -222,6 +246,7 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
             }else if(bundle.getInt("惑星") == 7 ){
                 //天王星  押下時
                 bundle.putInt("惑星",7);
+                bundle.putInt("結果7",i7);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Fragment f = new ResultOkFragment();
                 f.setArguments(bundle);
@@ -230,6 +255,7 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
             }else if(bundle.getInt("惑星") == 8 ){
                 //海王星  押下時
                 bundle.putInt("惑星",8);
+                bundle.putInt("結果8",i8);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Fragment f = new ResultOkFragment();
                 f.setArguments(bundle);

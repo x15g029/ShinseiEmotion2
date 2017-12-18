@@ -25,6 +25,16 @@ import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 public class EmotionBowlFragment extends Fragment implements View.OnClickListener {
 
 
+    private SharedPreferences pref;
+    private ImageView viewSui;
+    private ImageView viewKin;
+    private ImageView viewKa;
+    private ImageView viewMoku;
+    private ImageView viewDo;
+    private ImageView viewTen;
+    private ImageView viewKai;
+
+
     public EmotionBowlFragment() {
         // Required empty public constructor
     }
@@ -43,17 +53,17 @@ public class EmotionBowlFragment extends Fragment implements View.OnClickListene
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        SharedPreferences pref =
+        pref =
                 getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 
         // インスタンス取得
-        ImageView viewSui = (ImageView)getView().findViewById(R.id.imageBowlSui);
-        ImageView viewKin = (ImageView)getView().findViewById(R.id.imageBowlKin);
-        ImageView viewKa = (ImageView)getView().findViewById(R.id.imageBowlKa);
-        ImageView viewMoku = (ImageView)getView().findViewById(R.id.imageBowlMoku);
-        ImageView viewDo = (ImageView)getView().findViewById(R.id.imageBowlDo);
-        ImageView viewTen = (ImageView)getView().findViewById(R.id.imageBowlTen);
-        ImageView viewKai = (ImageView)getView().findViewById(R.id.imageBowlKai);
+         viewSui = (ImageView)getView().findViewById(R.id.imageBowlSui);
+         viewKin = (ImageView)getView().findViewById(R.id.imageBowlKin);
+         viewKa = (ImageView)getView().findViewById(R.id.imageBowlKa);
+         viewMoku = (ImageView)getView().findViewById(R.id.imageBowlMoku);
+         viewDo = (ImageView)getView().findViewById(R.id.imageBowlDo);
+         viewTen = (ImageView)getView().findViewById(R.id.imageBowlTen);
+         viewKai = (ImageView)getView().findViewById(R.id.imageBowlKai);
 
         //データセット
         String keySui = pref.getString("bowlsui","");
@@ -97,16 +107,46 @@ public class EmotionBowlFragment extends Fragment implements View.OnClickListene
         }
 
 
-        Button b1 = (Button)getView().findViewById(R.id.button);
+        Button b1 = (Button)getView().findViewById(R.id.btnMap);
         b1.setOnClickListener(this);
+
+        Button b2 = (Button)getView().findViewById(R.id.btnReset);
+        b2.setOnClickListener(this);
+
+        Button test = (Button)getView().findViewById(R.id.testbtn);
+        test.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View view) {
-        //マップ  押下時
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.layout_main, new MapFragment());
-        ft.commit();
+        if(view.getId() == R.id.btnMap) {
+            //マップ  押下時
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.layout_main, new MapFragment());
+            ft.commit();
+        }else if(view.getId() == R.id.btnReset) {
+            //リセット　押下時
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putString("bowlsui","");
+            editor.putString("bowlkin","");
+            editor.putString("bowlka","");
+            editor.putString("bowlmoku","");
+            editor.putString("bowldo","");
+            editor.putString("bowlten","");
+            editor.putString("bowlkai","");
+            editor.commit();
+            viewSui.setImageDrawable(null);
+            viewKin.setImageDrawable(null);
+            viewKa.setImageDrawable(null);
+            viewMoku.setImageDrawable(null);
+            viewDo.setImageDrawable(null);
+            viewTen.setImageDrawable(null);
+            viewKai.setImageDrawable(null);
+        }else if(view.getId() == R.id.testbtn) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.layout_main, new OpeningFragment());
+            ft.commit();
+        }
     }
 }
