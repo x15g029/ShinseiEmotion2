@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GaidoStartFragment extends Fragment {
+public class GaidoStartFragment extends Fragment{
 
     private ImageView imageView;
     private Animation animation;
@@ -56,6 +57,8 @@ public class GaidoStartFragment extends Fragment {
         textSerihu = (TextView) getView().findViewById(R.id.textSerihu);
         animation = AnimationUtils.loadAnimation(getContext(), R.anim.anime_gaido_tojo);
         imageView.startAnimation(animation);
+
+
 
 
         //アニメーション終了後
@@ -738,13 +741,26 @@ public class GaidoStartFragment extends Fragment {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                LinearLayout layout = (LinearLayout)getView().findViewById(R.id.LinearLayout);
                 Button btnChuto = new Button(getContext());
                 btnChuto.setText("取り返す方法を知る▼");
+                btnChuto.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.replace(R.id.layout_main, new TutorialFragment1());
+                        ft.commit();
+                    }
+                });
+
+                LinearLayout layout = (LinearLayout)getView().findViewById(R.id.LinearLayout);
                 layout.addView(btnChuto);
             }
         },12100);
+
+
     }
+
+
 }
 
 

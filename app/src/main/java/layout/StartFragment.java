@@ -58,7 +58,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
             ft.commit();
         }else{
             //初回起動
-            ft.replace(R.id.layout_main, new TutorialFragment1());
+            ft.replace(R.id.layout_main, new OpeningFragment());
             ft.commit();
         }
 

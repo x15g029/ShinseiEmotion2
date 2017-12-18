@@ -6,10 +6,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
@@ -17,7 +20,7 @@ import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class OpeningFragment extends Fragment {
+public class OpeningFragment extends Fragment{
 
     //タイプライター風
     private TextView textView;
@@ -53,6 +56,7 @@ public class OpeningFragment extends Fragment {
         //ぼたん取得してthisかくとこ
         textView = (TextView)getView().findViewById(R.id.textView1);
         handler.sendEmptyMessage(TIMEOUT_MESSAGE);
+
     }
 
     private Handler handler = new Handler(){
@@ -75,7 +79,23 @@ public class OpeningFragment extends Fragment {
                 }else{
                     super.dispatchMessage(msg);
                 }
+            }else if(i == arr_num){
+                Button btnNext = new Button(getContext());
+                btnNext.setText("タップして");
+                btnNext.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.replace(R.id.layout_main, new GaidoStartFragment());
+                        ft.commit();
+                    }
+                });
+                LinearLayout linearLayout = (LinearLayout)getView().findViewById(R.id.LinearLayout);
+                linearLayout.addView(btnNext);
             }
+
         }
     };
+
 }
+

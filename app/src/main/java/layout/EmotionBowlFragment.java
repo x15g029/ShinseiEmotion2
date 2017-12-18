@@ -54,7 +54,6 @@ public class EmotionBowlFragment extends Fragment implements View.OnClickListene
 
         if(hoge.equals(huga)){
             imageBowl.setImageResource(R.drawable.bowl1);
-
         }
 
 

@@ -105,7 +105,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 						picView.setImageURI(Uri.fromFile(file));
 						btnStageSelect.setImageResource(R.drawable.map_back);
 					} else {
-						imageResultMonster.setImageResource(R.drawable.image_chac);
+						imageResultMonster.setImageResource(R.drawable.m_sui1);
 						imageResultText.setImageResource(R.drawable.image_ng);
 						//写真を表示
 						ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
@@ -123,7 +123,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 						picView.setImageURI(Uri.fromFile(file));
 						btnStageSelect.setImageResource(R.drawable.map_back);
 					} else {
-						imageResultMonster.setImageResource(R.drawable.image_kani);
+						imageResultMonster.setImageResource(R.drawable.m_kin1);
 						imageResultText.setImageResource(R.drawable.image_ng);
 						//写真を表示
 						ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
@@ -176,7 +176,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 						picView.setImageURI(Uri.fromFile(file));
 						btnStageSelect.setImageResource(R.drawable.map_back);
 					} else {
-						imageResultMonster.setImageResource(R.drawable.image_tako);
+						imageResultMonster.setImageResource(R.drawable.m_ka1);
 						imageResultText.setImageResource(R.drawable.image_ng);
 						//写真を表示
 						ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
@@ -194,7 +194,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 						picView.setImageURI(Uri.fromFile(file));
 						btnStageSelect.setImageResource(R.drawable.map_back);
 					} else {
-						imageResultMonster.setImageResource(R.drawable.image_upup);
+						imageResultMonster.setImageResource(R.drawable.m_moku1);
 						imageResultText.setImageResource(R.drawable.image_ng);
 						//写真を表示
 						ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
@@ -230,7 +230,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 						picView.setImageURI(Uri.fromFile(file));
 						btnStageSelect.setImageResource(R.drawable.map_back);
 					} else {
-						imageResultMonster.setImageResource(R.drawable.image_tensi);
+						imageResultMonster.setImageResource(R.drawable.m_ten1);
 						imageResultText.setImageResource(R.drawable.image_ng);
 						//写真を表示
 						ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
@@ -248,7 +248,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener, 
 						picView.setImageURI(Uri.fromFile(file));
 						btnStageSelect.setImageResource(R.drawable.map_back);
 					} else {
-						imageResultMonster.setImageResource(R.drawable.image_dh);
+						imageResultMonster.setImageResource(R.drawable.m_kai1);
 						imageResultText.setImageResource(R.drawable.image_ng);
 						//写真を表示
 						ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
