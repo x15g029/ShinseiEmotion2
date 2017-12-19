@@ -67,7 +67,7 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
             //金星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
-            Odai.setImageResource(R.drawable.odai_keibetu);
+            Odai.setImageResource(R.drawable.odai_kexno);
             Monster.setImageResource(R.drawable.m_kin1);
         }else if(bundle.getInt("惑星") == 3 ){
             //地球
@@ -97,7 +97,7 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
             //天王星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
-            Odai.setImageResource(R.drawable.odai_kexno);
+            Odai.setImageResource(R.drawable.odai_keibetu);
             Monster.setImageResource(R.drawable.m_ten1);
         }else if(bundle.getInt("惑星") == 8 ){
             //海王星

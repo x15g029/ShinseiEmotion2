@@ -101,7 +101,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 
 				//新しいImegeViewを生成して、表情ボールを渡すシーン
 				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl1);
+				bowlageru.setImageResource(R.drawable.bowl_sui);
 			}
 			if (bundle.getInt("結果1") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_sui2);
@@ -132,7 +132,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 
 				//新しいImegeViewを生成して、表情ボールを渡すシーン
 				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl2);
+				bowlageru.setImageResource(R.drawable.bowl_kin);
 			}
 			if (bundle.getInt("結果2") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_kin2);
@@ -163,7 +163,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 
 				//新しいImegeViewを生成して、表情ボールを渡すシーン
 				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl8);
+				bowlageru.setImageResource(R.drawable.test1);
 			}
 			if (bundle.getInt("結果3") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_ti2);
@@ -194,7 +194,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 
 				//新しいImegeViewを生成して、表情ボールを渡すシーン
 				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl3);
+				bowlageru.setImageResource(R.drawable.bowl_ka);
 			}
 			if (bundle.getInt("結果4") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_ka2);
@@ -225,7 +225,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 
 				//新しいImegeViewを生成して、表情ボールを渡すシーン
 				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl4);
+				bowlageru.setImageResource(R.drawable.bowl_moku);
 			}
 			if (bundle.getInt("結果5") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_moku2);
@@ -256,7 +256,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 
 				//新しいImegeViewを生成して、表情ボールを渡すシーン
 				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl5);
+				bowlageru.setImageResource(R.drawable.bowl_do);
 			}
 			if (bundle.getInt("結果6") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_do2);
@@ -287,7 +287,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 
 				//新しいImegeViewを生成して、表情ボールを渡すシーン
 				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl6);
+				bowlageru.setImageResource(R.drawable.bowl_ten);
 			}
 			if (bundle.getInt("結果7") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_ten2);
@@ -318,7 +318,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 
 				//新しいImegeViewを生成して、表情ボールを渡すシーン
 				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl7);
+				bowlageru.setImageResource(R.drawable.bowl_kai);
 			}
 			if (bundle.getInt("結果8") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_kai2);

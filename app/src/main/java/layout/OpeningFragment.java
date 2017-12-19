@@ -25,11 +25,11 @@ public class OpeningFragment extends Fragment{
     //タイプライター風
     private TextView textView;
     String put_txt =
-            "宇宙から地球を見下ろした\n" +
-                "人間がたくさんいる。\n" +
-                    "嫌だと思っているのに笑っている人ばかりだ。\n"+
-                        "７つの表情ボールを持っているのに、\nどうして不愛想なんだろう\n"+
-                            "ぼくら表情ボール欲しいし、やつらから奪っちゃおう！";
+            "地球には人間が住んでいる\n\n" +
+                "人間は７つの表情ボールを持っていて\n\n見るたび表情が変わって面白いんだ\n\n" +
+                    "あれ？あそこにいる人\n\nなんだか表情が少ないな・・・\n\n"+
+                        "７つの表情ボールを持っているのに\n\nどうして不愛想なんだろう\n\n"+
+                            "表情ボール必要ないなら貰っても良いよね！\n\n取りに行こうっと！";
     int i = 0;
     String put_word = "";
     String put_text = "";
@@ -90,7 +90,7 @@ public class OpeningFragment extends Fragment{
                         ft.commit();
                     }
                 });
-                LinearLayout linearLayout = (LinearLayout)getView().findViewById(R.id.LinearLayout);
+                LinearLayout linearLayout = (LinearLayout)getView().findViewById(R.id.layout);
                 linearLayout.addView(btnNext);
             }
 

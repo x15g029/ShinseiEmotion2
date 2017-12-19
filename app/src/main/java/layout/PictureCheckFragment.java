@@ -9,8 +9,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +44,9 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
     private int i7;
     private int i8;
     private Bundle bundle2;
+    private Animation animation;
+    private ImageView picView;
+    private Animation animation2;
 
     public PictureCheckFragment() {
         // Required empty public constructor
@@ -55,7 +62,7 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
         //一時保存データのパスをFileにセット　（Uriで指定できるようにするため？）
         File file = new File(path);
         //写真を表示
-        ImageView picView = (ImageView)view.findViewById(R.id.PictureView);
+        picView = (ImageView)view.findViewById(R.id.PictureView);
         picView.setImageURI(Uri.fromFile(file));
 
         //エモーションエンジンの呼び出し
@@ -188,80 +195,102 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
             }
         }else if(view.getId() == R.id.btnNext){
             //判定する　 押下時
-            bundle =getArguments();
-            if(bundle.getInt("惑星") == 1 ){
-                //水星  押下時
-                bundle.putInt("惑星",1);
-                bundle.putInt("結果1",i1);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                Fragment f = new ResultOkFragment();
-                f.setArguments(bundle);
-                ft.replace(R.id.layout_main,f);
-                ft.commit();
-            }else if(bundle.getInt("惑星") == 2 ){
-                //金星  押下時
-                bundle.putInt("惑星",2);
-                bundle.putInt("結果2",i2);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                Fragment f = new ResultOkFragment();
-                f.setArguments(bundle);
-                ft.replace(R.id.layout_main,f);
-                ft.commit();
-            }else if(bundle.getInt("惑星") == 3 ){
-                //地球  押下時
-                bundle.putInt("惑星",3);
-                bundle.putInt("結果3",i3);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                Fragment f = new ResultOkFragment();
-                f.setArguments(bundle);
-                ft.replace(R.id.layout_main,f);
-                ft.commit();
-            }else if(bundle.getInt("惑星") == 4 ){
-                //火星  押下時
-                bundle.putInt("惑星",4);
-                bundle.putInt("結果4",i4);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                Fragment f = new ResultOkFragment();
-                f.setArguments(bundle);
-                ft.replace(R.id.layout_main,f);
-                ft.commit();
-            }else if(bundle.getInt("惑星") == 5 ){
-                //木星  押下時
-                bundle.putInt("惑星",5);
-                bundle.putInt("結果5",i5);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                Fragment f = new ResultOkFragment();
-                f.setArguments(bundle);
-                ft.replace(R.id.layout_main,f);
-                ft.commit();
-            }else if(bundle.getInt("惑星") == 6 ){
-                //土星  押下時
-                bundle.putInt("惑星",6);
-                bundle.putInt("結果6",i6);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                Fragment f = new ResultOkFragment();
-                f.setArguments(bundle);
-                ft.replace(R.id.layout_main,f);
-                ft.commit();
-            }else if(bundle.getInt("惑星") == 7 ){
-                //天王星  押下時
-                bundle.putInt("惑星",7);
-                bundle.putInt("結果7",i7);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                Fragment f = new ResultOkFragment();
-                f.setArguments(bundle);
-                ft.replace(R.id.layout_main,f);
-                ft.commit();
-            }else if(bundle.getInt("惑星") == 8 ){
-                //海王星  押下時
-                bundle.putInt("惑星",8);
-                bundle.putInt("結果8",i8);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                Fragment f = new ResultOkFragment();
-                f.setArguments(bundle);
-                ft.replace(R.id.layout_main,f);
-                ft.commit();
-            }
+
+            //ボタンを非表示
+            btn1.setVisibility(View.INVISIBLE);
+            btn2.setVisibility(View.INVISIBLE);
+            //モンスター表示
+            ImageView monster = new ImageView(getContext());
+            monster.setImageResource(R.drawable.m_sui1);
+            animation = AnimationUtils.loadAnimation(getContext(), R.anim.anime_gaido_tojo);
+            animation2 = AnimationUtils.loadAnimation(getContext(),R.anim.anime_sitani);
+            monster.startAnimation(animation);
+            picView.startAnimation(animation2);
+            Button btnNext = new Button(getContext());
+            btnNext.setText("タップして");
+            btnNext.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    bundle =getArguments();
+                    if(bundle.getInt("惑星") == 1 ){
+                        //水星  押下時
+                        bundle.putInt("惑星",1);
+                        bundle.putInt("結果1",i1);
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        Fragment f = new ResultOkFragment();
+                        f.setArguments(bundle);
+                        ft.replace(R.id.layout_main,f);
+                        ft.commit();
+                    }else if(bundle.getInt("惑星") == 2 ){
+                        //金星  押下時
+                        bundle.putInt("惑星",2);
+                        bundle.putInt("結果2",i2);
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        Fragment f = new ResultOkFragment();
+                        f.setArguments(bundle);
+                        ft.replace(R.id.layout_main,f);
+                        ft.commit();
+                    }else if(bundle.getInt("惑星") == 3 ){
+                        //地球  押下時
+                        bundle.putInt("惑星",3);
+                        bundle.putInt("結果3",i3);
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        Fragment f = new ResultOkFragment();
+                        f.setArguments(bundle);
+                        ft.replace(R.id.layout_main,f);
+                        ft.commit();
+                    }else if(bundle.getInt("惑星") == 4 ){
+                        //火星  押下時
+                        bundle.putInt("惑星",4);
+                        bundle.putInt("結果4",i4);
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        Fragment f = new ResultOkFragment();
+                        f.setArguments(bundle);
+                        ft.replace(R.id.layout_main,f);
+                        ft.commit();
+                    }else if(bundle.getInt("惑星") == 5 ){
+                        //木星  押下時
+                        bundle.putInt("惑星",5);
+                        bundle.putInt("結果5",i5);
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        Fragment f = new ResultOkFragment();
+                        f.setArguments(bundle);
+                        ft.replace(R.id.layout_main,f);
+                        ft.commit();
+                    }else if(bundle.getInt("惑星") == 6 ){
+                        //土星  押下時
+                        bundle.putInt("惑星",6);
+                        bundle.putInt("結果6",i6);
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        Fragment f = new ResultOkFragment();
+                        f.setArguments(bundle);
+                        ft.replace(R.id.layout_main,f);
+                        ft.commit();
+                    }else if(bundle.getInt("惑星") == 7 ){
+                        //天王星  押下時
+                        bundle.putInt("惑星",7);
+                        bundle.putInt("結果7",i7);
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        Fragment f = new ResultOkFragment();
+                        f.setArguments(bundle);
+                        ft.replace(R.id.layout_main,f);
+                        ft.commit();
+                    }else if(bundle.getInt("惑星") == 8 ){
+                        //海王星  押下時
+                        bundle.putInt("惑星",8);
+                        bundle.putInt("結果8",i8);
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        Fragment f = new ResultOkFragment();
+                        f.setArguments(bundle);
+                        ft.replace(R.id.layout_main,f);
+                        ft.commit();
+                    }
+                }
+            });
+            LinearLayout Layout = (LinearLayout)getView().findViewById(R.id.layout2);
+            Layout.addView(btnNext);
+            Layout.addView(monster);
+
         }
     }
 }

@@ -79,31 +79,31 @@ public class EmotionBowlFragment extends Fragment implements View.OnClickListene
 
         //クリアしている惑星の水晶を表示
         if(keySui.equals(clear)){
-            viewSui.setImageResource(R.drawable.bowl1);
+            viewSui.setImageResource(R.drawable.dai_bowl_sui);
         }
 
         if(keyKin.equals(clear)){
-            viewKin.setImageResource(R.drawable.bowl2);
+            viewKin.setImageResource(R.drawable.dai_bowl_kin);
         }
 
         if(keyKa.equals(clear)){
-            viewKa.setImageResource(R.drawable.bowl3);
+            viewKa.setImageResource(R.drawable.dai_bowl_ka);
         }
 
         if(keyMoku.equals(clear)){
-            viewMoku.setImageResource(R.drawable.bowl4);
+            viewMoku.setImageResource(R.drawable.dai_bowl_moku);
         }
 
         if(keyDo.equals(clear)){
-            viewDo.setImageResource(R.drawable.bowl5);
+            viewDo.setImageResource(R.drawable.dai_bowl_do);
         }
 
         if(keyTen.equals(clear)){
-            viewTen.setImageResource(R.drawable.bowl6);
+            viewTen.setImageResource(R.drawable.dai_bowl_ten);
         }
 
         if(keyKai.equals(clear)){
-            viewKai.setImageResource(R.drawable.bowl7);
+            viewKai.setImageResource(R.drawable.dai_bowl_kai);
         }
 
 
@@ -136,13 +136,13 @@ public class EmotionBowlFragment extends Fragment implements View.OnClickListene
             editor.putString("bowlten","");
             editor.putString("bowlkai","");
             editor.commit();
-            viewSui.setImageDrawable(null);
-            viewKin.setImageDrawable(null);
-            viewKa.setImageDrawable(null);
-            viewMoku.setImageDrawable(null);
-            viewDo.setImageDrawable(null);
-            viewTen.setImageDrawable(null);
-            viewKai.setImageDrawable(null);
+            viewSui.setImageResource(R.drawable.dai_sui);
+            viewKin.setImageResource(R.drawable.dai_kin);
+            viewKa.setImageResource(R.drawable.dai_ka);
+            viewMoku.setImageResource(R.drawable.dai_moku);
+            viewDo.setImageResource(R.drawable.dai_do);
+            viewTen.setImageResource(R.drawable.dai_ten);
+            viewKai.setImageResource(R.drawable.dai_kai);
         }else if(view.getId() == R.id.testbtn) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.layout_main, new OpeningFragment());
