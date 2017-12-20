@@ -1,6 +1,7 @@
 package layout;
 
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,12 +9,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
-import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +29,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     private ImageButton btn8;
     public FragmentTransaction ft_c;
     public EncounterSuiFragment f_c;
+    private MediaPlayer mediaPlayer;
 
     public MapFragment() {
         // Required empty public constructor
@@ -39,6 +39,12 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_map, container, false);
+
+        //BGM再生
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_map);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
+
         return view;
     }
 
@@ -78,48 +84,56 @@ public class MapFragment extends Fragment implements View.OnClickListener {
             bundle.putInt("惑星",1);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
+            mediaPlayer.stop();
             ft_c.commit();
         }else if(view.getId() == R.id.btnKin){
             //金星　 押下時
             bundle.putInt("惑星",2);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
+            mediaPlayer.stop();
             ft_c.commit();
         }else if(view.getId() == R.id.btnTi){
             //地球　 押下時
             bundle.putInt("惑星",3);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
+            mediaPlayer.stop();
             ft_c.commit();
         }else if(view.getId() == R.id.btnKa){
             //火星　 押下時
             bundle.putInt("惑星",4);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
+            mediaPlayer.stop();
             ft_c.commit();
         }else if(view.getId() == R.id.btnMoku){
             //木星　 押下時
             bundle.putInt("惑星",5);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
+            mediaPlayer.stop();
             ft_c.commit();
         }else if(view.getId() == R.id.btnDo){
             //土星　 押下時
             bundle.putInt("惑星",6);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
+            mediaPlayer.stop();
             ft_c.commit();
         }else if(view.getId() == R.id.btnTen){
             //天王星　 押下時
             bundle.putInt("惑星",7);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
+            mediaPlayer.stop();
             ft_c.commit();
         }else if(view.getId() == R.id.btnKai){
             //海王星　 押下時
             bundle.putInt("惑星",8);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
+            mediaPlayer.stop();
             ft_c.commit();
         }
     }

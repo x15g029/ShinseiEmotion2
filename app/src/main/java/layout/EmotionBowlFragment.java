@@ -3,6 +3,7 @@ package layout;
 
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -33,6 +34,7 @@ public class EmotionBowlFragment extends Fragment implements View.OnClickListene
     private ImageView viewDo;
     private ImageView viewTen;
     private ImageView viewKai;
+    private MediaPlayer mediaPlayer;
 
 
     public EmotionBowlFragment() {
@@ -45,6 +47,10 @@ public class EmotionBowlFragment extends Fragment implements View.OnClickListene
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_emotion_bowl, container, false);
 
+        //BGM再生
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_bowl);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
 
         return view;
     }

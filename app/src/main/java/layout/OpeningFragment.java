@@ -1,6 +1,7 @@
 package layout;
 
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -8,11 +9,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
@@ -36,6 +34,7 @@ public class OpeningFragment extends Fragment{
 
     private static int TIMEOUT_MESSAGE = 1;
     private static int INTERVAL = 100;//速度調節はここで  100がちょうどいいかも
+    public MediaPlayer mediaPlayer;
 
     public OpeningFragment() {
         // Required empty public constructor
@@ -46,6 +45,13 @@ public class OpeningFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_opening, container, false);
+
+        //BGM再生
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_start);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
+
+
         return view;
     }
 
@@ -88,6 +94,7 @@ public class OpeningFragment extends Fragment{
                         //次画面へ
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.replace(R.id.layout_main, new GaidoStartFragment());
+                        mediaPlayer.stop();
                         ft.commit();
                     }
                 }, 5000);

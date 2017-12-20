@@ -2,6 +2,7 @@ package layout;
 
 
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
@@ -31,6 +32,7 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
     private ImageButton btn1;
     private ImageButton btn2;
     private Bundle bundle;
+    private MediaPlayer mediaPlayer;
 
     public EncounterSuiFragment() {
         // Required empty public constructor
@@ -42,6 +44,45 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_encounter_sui, container, false);
 
+
+
+        bundle = getArguments();
+        if(bundle.getInt("惑星") == 1){
+            //BGM再生
+            mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_sui);
+            mediaPlayer.setLooping(true);
+            mediaPlayer.start();
+        }else if(bundle.getInt("惑星") == 2){
+            //BGM再生
+            mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_kin);
+            mediaPlayer.setLooping(true);
+            mediaPlayer.start();
+        }else if(bundle.getInt("惑星") == 4){
+            //BGM再生
+            mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ka);
+            mediaPlayer.setLooping(true);
+            mediaPlayer.start();
+        }else if(bundle.getInt("惑星") == 5){
+            //BGM再生
+            mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_moku);
+            mediaPlayer.setLooping(true);
+            mediaPlayer.start();
+        }else if(bundle.getInt("惑星") == 6){
+            //BGM再生
+            mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_do);
+            mediaPlayer.setLooping(true);
+            mediaPlayer.start();
+        }else if(bundle.getInt("惑星") == 7){
+            //BGM再生
+            mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ten);
+            mediaPlayer.setLooping(true);
+            mediaPlayer.start();
+        }else if(bundle.getInt("惑星") == 8){
+            //BGM再生
+            mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_kai);
+            mediaPlayer.setLooping(true);
+            mediaPlayer.start();
+        }
 
 
         //キャラクターが動くやつ

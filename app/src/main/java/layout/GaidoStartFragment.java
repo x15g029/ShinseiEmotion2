@@ -1,9 +1,9 @@
 package layout;
 
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -17,11 +17,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 
 /**
@@ -33,6 +28,7 @@ public class GaidoStartFragment extends Fragment{
     private Animation animation;
     private TextView textSerihu;
     private  String Pserihu;
+    private MediaPlayer mediaPlayer;
 
 
     public GaidoStartFragment() {
@@ -44,6 +40,12 @@ public class GaidoStartFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gaido_start, container, false);
+
+        //BGM再生
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_start);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
+
         return view;
     }
 
@@ -748,6 +750,7 @@ public class GaidoStartFragment extends Fragment{
                     public void onClick(View view) {
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.replace(R.id.layout_main, new TutorialFragment1());
+                        mediaPlayer.stop();
                         ft.commit();
                     }
                 });
