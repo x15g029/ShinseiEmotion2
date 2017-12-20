@@ -751,6 +751,7 @@ public class GaidoStartFragment extends Fragment{
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.replace(R.id.layout_main, new TutorialFragment1());
                         mediaPlayer.stop();
+                        mediaPlayer.release();
                         ft.commit();
                     }
                 });

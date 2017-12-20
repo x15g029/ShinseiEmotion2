@@ -130,6 +130,8 @@ public class EmotionBowlFragment extends Fragment implements View.OnClickListene
             //マップ  押下時
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.layout_main, new MapFragment());
+            mediaPlayer.stop();
+            mediaPlayer.release();
             ft.commit();
         }else if(view.getId() == R.id.btnReset) {
             //リセット　押下時
@@ -152,6 +154,8 @@ public class EmotionBowlFragment extends Fragment implements View.OnClickListene
         }else if(view.getId() == R.id.testbtn) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.layout_main, new OpeningFragment());
+            mediaPlayer.stop();
+            mediaPlayer.release();
             ft.commit();
         }
     }

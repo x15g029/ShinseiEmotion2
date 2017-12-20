@@ -95,6 +95,7 @@ public class OpeningFragment extends Fragment{
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.replace(R.id.layout_main, new GaidoStartFragment());
                         mediaPlayer.stop();
+                        mediaPlayer.release();
                         ft.commit();
                     }
                 }, 5000);
