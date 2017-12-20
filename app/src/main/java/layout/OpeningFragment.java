@@ -25,11 +25,11 @@ public class OpeningFragment extends Fragment{
     //タイプライター風
     private TextView textView;
     String put_txt =
-            "地球には人間が住んでいる\n\n" +
-                "人間は７つの表情ボールを持っていて\n\n見るたび表情が変わって面白いんだ\n\n" +
-                    "あれ？あそこにいる人\n\nなんだか表情が少ないな・・・\n\n"+
-                        "７つの表情ボールを持っているのに\n\nどうして不愛想なんだろう\n\n"+
-                            "表情ボール必要ないなら貰っても良いよね！\n\n取りに行こうっと！";
+            "\n\n\n　　　地球には人間が住んでいる\n\n" +
+                "　　　人間は７つの表情ボールを持っていて\n\n　　　見るたび表情が変わって面白いんだ\n\n" +
+                    "　　　あれ？あそこにいる人\n\n　　　なんだか表情が少ないな・・・\n\n"+
+                        "　　　７つの表情ボールを持っているのに\n\n　　　どうして不愛想なんだろう\n\n"+
+                            "　　　表情ボール必要ないなら\n\n　　　貰っても良いよね！取りに行こうっと！";
     int i = 0;
     String put_word = "";
     String put_text = "";
@@ -80,18 +80,17 @@ public class OpeningFragment extends Fragment{
                     super.dispatchMessage(msg);
                 }
             }else if(i == arr_num){
-                Button btnNext = new Button(getContext());
-                btnNext.setText("タップして");
-                btnNext.setOnClickListener(new View.OnClickListener() {
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
                     @Override
-                    public void onClick(View view) {
+                    //5秒後に実行する処理
+                    public void run() {
+                        //次画面へ
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.replace(R.id.layout_main, new GaidoStartFragment());
                         ft.commit();
                     }
-                });
-                LinearLayout linearLayout = (LinearLayout)getView().findViewById(R.id.layout);
-                linearLayout.addView(btnNext);
+                }, 5000);
             }
 
         }

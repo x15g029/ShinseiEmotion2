@@ -3,6 +3,7 @@ package layout;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -47,6 +48,7 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
     private Animation animation;
     private ImageView picView;
     private Animation animation2;
+    private ImageView monster;
 
     public PictureCheckFragment() {
         // Required empty public constructor
@@ -199,18 +201,60 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
             //ボタンを非表示
             btn1.setVisibility(View.INVISIBLE);
             btn2.setVisibility(View.INVISIBLE);
-            //モンスター表示
-            ImageView monster = new ImageView(getContext());
-            monster.setImageResource(R.drawable.m_sui1);
-            animation = AnimationUtils.loadAnimation(getContext(), R.anim.anime_gaido_tojo);
+            //アニメーションセット
+            animation = AnimationUtils.loadAnimation(getContext(), R.anim.anime_yokokara);
             animation2 = AnimationUtils.loadAnimation(getContext(),R.anim.anime_sitani);
-            monster.startAnimation(animation);
-            picView.startAnimation(animation2);
-            Button btnNext = new Button(getContext());
-            btnNext.setText("タップして");
-            btnNext.setOnClickListener(new View.OnClickListener() {
+
+            
+            //実行順序
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
                 @Override
-                public void onClick(View view) {
+                //5秒後に実行する処理
+                public void run() {
+                    //モンスター表示
+                    monster = new ImageView(getContext());
+                    bundle =getArguments();
+                    if(bundle.getInt("惑星") == 1){
+                        monster.setImageResource(R.drawable.m_sui1);
+                    }else if(bundle.getInt("惑星") == 2){
+                        monster.setImageResource(R.drawable.m_kin1);
+                    }else if(bundle.getInt("惑星") == 4){
+                        monster.setImageResource(R.drawable.m_ka1);
+                    }else if(bundle.getInt("惑星") == 5){
+                        monster.setImageResource(R.drawable.m_moku1);
+                    }else if(bundle.getInt("惑星") == 6){
+                        monster.setImageResource(R.drawable.m_do1);
+                    }else if(bundle.getInt("惑星") == 7){
+                        monster.setImageResource(R.drawable.m_ten1);
+                    }else if(bundle.getInt("惑星") == 8){
+                        monster.setImageResource(R.drawable.m_kai1);
+                    }
+                    //アニメーション起動
+                    monster.startAnimation(animation);
+                    picView.startAnimation(animation2);
+                    //レイアウトに追加
+                    LinearLayout lay2 = (LinearLayout)getView().findViewById(R.id.lay2);
+                    lay2.addView(monster);
+                }
+            }, 0);
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                //宇宙人の動きが止まった後の処理
+                public void run() {
+                    //セリフ表示
+                    LinearLayout lay1 = (LinearLayout)getView().findViewById(R.id.lay1);
+                    ImageView serihu = new ImageView(getContext());
+                    serihu.setImageResource(R.drawable.back);
+                    lay1.addView(serihu);
+                }
+            }, 2300);
+            
+            handler.postDelayed(new Runnable() {
+                @Override
+                //8秒後に実行する処理
+                public void run() {
                     bundle =getArguments();
                     if(bundle.getInt("惑星") == 1 ){
                         //水星  押下時
@@ -275,21 +319,21 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
                         f.setArguments(bundle);
                         ft.replace(R.id.layout_main,f);
                         ft.commit();
-                    }else if(bundle.getInt("惑星") == 8 ){
+                    }else if(bundle.getInt("惑星") == 8 ) {
                         //海王星  押下時
-                        bundle.putInt("惑星",8);
-                        bundle.putInt("結果8",i8);
+                        bundle.putInt("惑星", 8);
+                        bundle.putInt("結果8", i8);
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         Fragment f = new ResultOkFragment();
                         f.setArguments(bundle);
-                        ft.replace(R.id.layout_main,f);
+                        ft.replace(R.id.layout_main, f);
                         ft.commit();
                     }
                 }
-            });
-            LinearLayout Layout = (LinearLayout)getView().findViewById(R.id.layout2);
-            Layout.addView(btnNext);
-            Layout.addView(monster);
+            }, 8000);
+                    
+
+
 
         }
     }
