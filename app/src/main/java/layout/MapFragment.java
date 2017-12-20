@@ -40,7 +40,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_map, container, false);
 
-        //BGM再生
+        //BGM再生だ
         mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_map);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
