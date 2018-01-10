@@ -236,8 +236,10 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
             //戻る  押下時
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.layout_main, new MapFragment());
-            mediaPlayer.stop();
-            mediaPlayer.release();
+            if(mediaPlayer != null) {
+                mediaPlayer.stop();
+                mediaPlayer.release();
+            }
             ft.commit();
             }
         }
