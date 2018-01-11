@@ -99,11 +99,16 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowlsui","クリア");
 				editor.commit();
 
-				//新しいImegeViewを生成して、表情ボールを渡すシーン
-				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl_sui);
+				//表情ボールを渡すシーン
+				imageResultMonster.setImageResource(R.drawable.m_sui3);
+				//判定結果
+				imageResultText.setImageResource(R.drawable.result_ok);
+				//写真を表示
+				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
+				picView.setImageURI(Uri.fromFile(file));
+				btnStageSelect.setImageResource(R.drawable.map_back);
 			}
-			if (bundle.getInt("結果1") >= 80) {
+			else if (bundle.getInt("結果1") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_sui2);
 				imageResultText.setImageResource(R.drawable.result_ok);
 				//写真を表示
@@ -130,11 +135,16 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowlkin","クリア");
 				editor.commit();
 
-				//新しいImegeViewを生成して、表情ボールを渡すシーン
-				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl_kin);
+				//表情ボールを渡すシーン
+				imageResultMonster.setImageResource(R.drawable.m_kin3);
+				//判定結果
+				imageResultText.setImageResource(R.drawable.result_ok);
+				//写真を表示
+				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
+				picView.setImageURI(Uri.fromFile(file));
+				btnStageSelect.setImageResource(R.drawable.map_back);
 			}
-			if (bundle.getInt("結果2") >= 80) {
+			else if (bundle.getInt("結果2") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_kin2);
 				imageResultText.setImageResource(R.drawable.result_ok);
 				//写真を表示
@@ -161,11 +171,16 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowlti","クリア");
 				editor.commit();
 
-				//新しいImegeViewを生成して、表情ボールを渡すシーン
-				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.test1);
+				//表情ボールを渡すシーン
+				imageResultMonster.setImageResource(R.drawable.m_ti1);
+				//判定結果
+				imageResultText.setImageResource(R.drawable.result_ok);
+				//写真を表示
+				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
+				picView.setImageURI(Uri.fromFile(file));
+				btnStageSelect.setImageResource(R.drawable.map_back);
 			}
-			if (bundle.getInt("結果3") >= 80) {
+			else if (bundle.getInt("結果3") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_ti2);
 				imageResultText.setImageResource(R.drawable.result_ok);
 				//写真を表示
@@ -192,11 +207,16 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowlka","クリア");
 				editor.commit();
 
-				//新しいImegeViewを生成して、表情ボールを渡すシーン
-				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl_ka);
+				//表情ボールを渡すシーン
+				imageResultMonster.setImageResource(R.drawable.m_ka3);
+				//判定結果
+				imageResultText.setImageResource(R.drawable.result_ok);
+				//写真を表示
+				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
+				picView.setImageURI(Uri.fromFile(file));
+				btnStageSelect.setImageResource(R.drawable.map_back);
 			}
-			if (bundle.getInt("結果4") >= 80) {
+			else if (bundle.getInt("結果4") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_ka2);
 				imageResultText.setImageResource(R.drawable.result_ok);
 				//写真を表示
@@ -214,7 +234,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 		} else if (bundle.getInt("惑星") == 5) {
 			//木星
 			ResultOdai.setText("笑顔達成度　　:" + bundle.getInt("結果5") + "%");
-			if (bundle.getInt("結果5") >= 0 ){
+			if (bundle.getInt("結果5") >= 90 ){
 				// プリファレンスの準備 //
 				SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 				// プリファレンスに書き込むためのEditorオブジェクト取得
@@ -223,11 +243,16 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowlmoku","クリア");
 				editor.commit();
 
-				//新しいImegeViewを生成して、表情ボールを渡すシーン
-				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl_moku);
+				//表情ボールを渡すシーン
+				imageResultMonster.setImageResource(R.drawable.m_moku3);
+				//判定結果
+				imageResultText.setImageResource(R.drawable.result_ok);
+				//写真を表示
+				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
+				picView.setImageURI(Uri.fromFile(file));
+				btnStageSelect.setImageResource(R.drawable.map_back);
 			}
-			if (bundle.getInt("結果5") >= 80) {
+			else if (bundle.getInt("結果5") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_moku2);
 				imageResultText.setImageResource(R.drawable.result_ok);
 				//写真を表示
@@ -254,11 +279,16 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowldo","クリア");
 				editor.commit();
 
-				//新しいImegeViewを生成して、表情ボールを渡すシーン
-				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl_do);
+				//表情ボールを渡すシーン
+				imageResultMonster.setImageResource(R.drawable.m_do3);
+				//判定結果
+				imageResultText.setImageResource(R.drawable.result_ok);
+				//写真を表示
+				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
+				picView.setImageURI(Uri.fromFile(file));
+				btnStageSelect.setImageResource(R.drawable.map_back);
 			}
-			if (bundle.getInt("結果6") >= 80) {
+			else if (bundle.getInt("結果6") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_do2);
 				imageResultText.setImageResource(R.drawable.result_ok);
 				//写真を表示
@@ -285,11 +315,16 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowlten","クリア");
 				editor.commit();
 
-				//新しいImegeViewを生成して、表情ボールを渡すシーン
-				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl_ten);
+				//表情ボールを渡すシーン
+				imageResultMonster.setImageResource(R.drawable.m_ten3);
+				//判定結果
+				imageResultText.setImageResource(R.drawable.result_ok);
+				//写真を表示
+				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
+				picView.setImageURI(Uri.fromFile(file));
+				btnStageSelect.setImageResource(R.drawable.map_back);
 			}
-			if (bundle.getInt("結果7") >= 80) {
+			else if (bundle.getInt("結果7") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_ten2);
 				imageResultText.setImageResource(R.drawable.result_ok);
 				//写真を表示
@@ -316,11 +351,16 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowlkai","クリア");
 				editor.commit();
 
-				//新しいImegeViewを生成して、表情ボールを渡すシーン
-				ImageView bowlageru = (ImageView)getView().findViewById(R.id.bowlageru);
-				bowlageru.setImageResource(R.drawable.bowl_kai);
+				//表情ボールを渡すシーン
+				imageResultMonster.setImageResource(R.drawable.m_kai3);
+				//判定結果
+				imageResultText.setImageResource(R.drawable.result_ok);
+				//写真を表示
+				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
+				picView.setImageURI(Uri.fromFile(file));
+				btnStageSelect.setImageResource(R.drawable.map_back);
 			}
-			if (bundle.getInt("結果8") >= 80) {
+			else if (bundle.getInt("結果8") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_kai2);
 				imageResultText.setImageResource(R.drawable.result_ok);
 				//写真を表示

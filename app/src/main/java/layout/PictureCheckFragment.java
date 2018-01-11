@@ -68,7 +68,7 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
         picView.setImageURI(Uri.fromFile(file));
 
         //エモーションエンジンの呼び出し
-        EmotionEngine.getEmotion(path,this);
+       EmotionEngine.getEmotion(path,this);
 
         return view;
     }

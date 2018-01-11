@@ -154,7 +154,7 @@ public class CameraFragment extends Fragment implements View.OnTouchListener ,Em
 		mCamera.save(path);
 
 		//エモーションエンジンの呼び出し
-		EmotionEngine.getEmotion(path,this);
+		//EmotionEngine.getEmotion(path,this);
 
 
 		return false;

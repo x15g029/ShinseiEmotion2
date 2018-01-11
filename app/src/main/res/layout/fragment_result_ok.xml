@@ -73,25 +73,15 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.3"
-            android:background="@android:color/holo_orange_light"
             app:srcCompat="@drawable/map_back" />
+
+        <Button
+            android:id="@+id/b1"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.3"
+            android:text="水晶ページへ" />
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/sinkoudo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <Button
-        android:id="@+id/b1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="水晶ページへ" />
-
-    <ImageView
-        android:id="@+id/bowlageru"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content" />
 </LinearLayout>

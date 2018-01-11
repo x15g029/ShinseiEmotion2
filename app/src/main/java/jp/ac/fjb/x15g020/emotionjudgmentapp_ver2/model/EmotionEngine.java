@@ -22,8 +22,8 @@ import java.net.URL;
 
 public class EmotionEngine {
 	final static String EmotionURL = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize";
-	final static String EmotuionKey1 = "ba0940707fd04b14a8dad57ab46e2142";
-	final static String EmotuionKey2 = "5cd4f94f06ba4e548859b0840a58b156";
+	final static String EmotuionKey1 = "0a284af59c244f9e9d5c1cca8c35e322";
+	final static String EmotuionKey2 = "5ec452cd6bec42daa2f0bc00142297fa";
 	public static class EmotionParam implements Serializable{
 		public double anger;
 		public double contempt;
@@ -97,7 +97,8 @@ public class EmotionEngine {
 					con.setRequestProperty("Content-Type", "application/octet-stream");
 					con.setRequestProperty("Ocp-Apim-Subscription-Key", EmotuionKey1);
 
-
+					// APIに接続
+					con.connect();
 
 					long sizeTotal = file.length();
 					FileInputStream input = new FileInputStream(file);
@@ -112,8 +113,7 @@ public class EmotionEngine {
 					}
 
 
-					// APIに接続
-					con.connect();
+
 					os.close();
 
 					int status = con.getResponseCode();
