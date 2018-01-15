@@ -4,8 +4,11 @@
 
    android:fromYDelta="100%p"
     android:toYDelta="-1%p"
+
+
+
     android:fillAfter="true"
-    android:duration="6000" />
+    android:duration="2300" />
 
 <!--fromXDelta：開始時のx位置
     fromYDelta：開始時のy位置

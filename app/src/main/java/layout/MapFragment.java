@@ -29,7 +29,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     private ImageButton btn8;
     public FragmentTransaction ft_c;
     public EncounterSuiFragment f_c;
-    private MediaPlayer mediaPlayer;
+    public MediaPlayer mediaPlayer;
 
     public MapFragment() {
         // Required empty public constructor
@@ -47,6 +47,8 @@ public class MapFragment extends Fragment implements View.OnClickListener {
 
         return view;
     }
+
+
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -84,66 +86,84 @@ public class MapFragment extends Fragment implements View.OnClickListener {
             bundle.putInt("惑星",1);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
-            mediaPlayer.stop();
-            mediaPlayer.release();
+//            mediaPlayer.stop();
+//            mediaPlayer.release();
             ft_c.commit();
         }else if(view.getId() == R.id.btnKin){
             //金星　 押下時
             bundle.putInt("惑星",2);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
-            mediaPlayer.stop();
-            mediaPlayer.release();
+//            mediaPlayer.stop();
+//            mediaPlayer.release();
             ft_c.commit();
         }else if(view.getId() == R.id.btnTi){
             //地球　 押下時
             bundle.putInt("惑星",3);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
-            mediaPlayer.stop();
-            mediaPlayer.release();
+//            mediaPlayer.stop();
+//            mediaPlayer.release();
             ft_c.commit();
         }else if(view.getId() == R.id.btnKa){
             //火星　 押下時
             bundle.putInt("惑星",4);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
-            mediaPlayer.stop();
-            mediaPlayer.release();
+//            mediaPlayer.stop();
+//            mediaPlayer.release();
             ft_c.commit();
         }else if(view.getId() == R.id.btnMoku){
             //木星　 押下時
             bundle.putInt("惑星",5);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
-            mediaPlayer.stop();
-            mediaPlayer.release();
+//            mediaPlayer.stop();
+//            mediaPlayer.release();
             ft_c.commit();
         }else if(view.getId() == R.id.btnDo){
             //土星　 押下時
             bundle.putInt("惑星",6);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
-            mediaPlayer.stop();
-            mediaPlayer.release();
+//            mediaPlayer.stop();
+//            mediaPlayer.release();
             ft_c.commit();
         }else if(view.getId() == R.id.btnTen){
             //天王星　 押下時
             bundle.putInt("惑星",7);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
-            mediaPlayer.stop();
-            mediaPlayer.release();
+//            mediaPlayer.stop();
+//            mediaPlayer.release();
             ft_c.commit();
         }else if(view.getId() == R.id.btnKai){
             //海王星　 押下時
             bundle.putInt("惑星",8);
             f_c.setArguments(bundle);
             ft_c.replace(R.id.layout_main,f_c);
-            mediaPlayer.stop();
-            mediaPlayer.release();
+//            mediaPlayer.stop();
+//            mediaPlayer.release();
             ft_c.commit();
         }
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(mediaPlayer == null) {
+            mediaPlayer.start();
+        }
 
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if(mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
+
+    }
 }

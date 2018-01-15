@@ -34,7 +34,7 @@ public class EmotionBowlFragment extends Fragment implements View.OnClickListene
     private ImageView viewDo;
     private ImageView viewTen;
     private ImageView viewKai;
-    private MediaPlayer mediaPlayer;
+    public MediaPlayer mediaPlayer;
 
 
     public EmotionBowlFragment() {
@@ -159,4 +159,5 @@ public class EmotionBowlFragment extends Fragment implements View.OnClickListene
             ft.commit();
         }
     }
+
 }

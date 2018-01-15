@@ -30,7 +30,7 @@ import static junit.runner.BaseTestRunner.getPreference;
  */
 public class ResultOkFragment extends Fragment implements View.OnClickListener{
 	private ImageButton btn1;
-	private Button btn2;
+	private ImageButton btn2;
 	private String path;
 	private File file;
 	private int i1;
@@ -75,7 +75,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 
 		//IDからオブジェクトを取得
 		btn1 = (ImageButton) view.findViewById(R.id.btnStageSelect);
-		btn2 = (Button) view.findViewById(R.id.b1);
+		btn2 = (ImageButton) view.findViewById(R.id.b1);
 		//ボタンをリスナーに登録
 		btn1.setOnClickListener(this);
 		btn2.setOnClickListener(this);
@@ -233,7 +233,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 			}
 		} else if (bundle.getInt("惑星") == 5) {
 			//木星
-			ResultOdai.setText("笑顔達成度　　:" + bundle.getInt("結果5") + "%");
+			ResultOdai.setText("笑顔達成度 :" + bundle.getInt("結果5") + "%");
 			if (bundle.getInt("結果5") >= 90 ){
 				// プリファレンスの準備 //
 				SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );

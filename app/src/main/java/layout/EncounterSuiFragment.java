@@ -32,7 +32,7 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
     private ImageButton btn1;
     private ImageButton btn2;
     private Bundle bundle;
-    private MediaPlayer mediaPlayer;
+    public MediaPlayer mediaPlayer;
 
     public EncounterSuiFragment() {
         // Required empty public constructor
@@ -55,6 +55,11 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
         }else if(bundle.getInt("惑星") == 2){
             //BGM再生
             mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_kin);
+            mediaPlayer.setLooping(true);
+            mediaPlayer.start();
+        }else if(bundle.getInt("惑星") == 3){
+            //BGM再生
+            mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_moku);
             mediaPlayer.setLooping(true);
             mediaPlayer.start();
         }else if(bundle.getInt("惑星") == 4){
@@ -127,7 +132,7 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
             Odai.setImageResource(R.drawable.odai_egao);
-            Monster.setImageResource(R.drawable.m_moku1);
+            Monster.setImageResource(R.drawable.m_moku4);
         }else if(bundle.getInt("惑星") == 6 ){
             //土星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
@@ -237,11 +242,30 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.layout_main, new MapFragment());
             if(mediaPlayer != null) {
-                mediaPlayer.stop();
-                mediaPlayer.release();
+//                mediaPlayer.stop();
+//                mediaPlayer.release();
             }
             ft.commit();
             }
         }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(mediaPlayer == null) {
+            mediaPlayer.start();
+        }
+
+
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if(mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
+    }
+
+}
 

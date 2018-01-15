@@ -28,7 +28,7 @@ public class GaidoStartFragment extends Fragment{
     private Animation animation;
     private TextView textSerihu;
     private  String Pserihu;
-    private MediaPlayer mediaPlayer;
+    public MediaPlayer mediaPlayer;
 
 
     public GaidoStartFragment() {

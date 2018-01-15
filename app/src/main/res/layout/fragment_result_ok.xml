@@ -7,81 +7,83 @@
     android:background="@drawable/image_back"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageResultText"
-        android:layout_width="300dp"
-        android:layout_height="140dp"
-        android:layout_gravity="center"
-        android:padding="20dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="190dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageResultMonster"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:scaleType="fitCenter" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginBottom="20dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/ResultOdai"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text=""
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
-            </LinearLayout>
-        </LinearLayout>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageResultPicture"
-            android:layout_width="210dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:id="@+id/imageResultText"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:padding="20dp"
+            android:scaleX="1.2"
+            android:scaleY="1.2" />
 
+        <TextView
+            android:id="@+id/ResultOdai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="monospace"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageResultPicture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleX="1.2"
+            android:scaleY="1.2" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/btnStageSelect"
-            android:layout_width="100dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="130dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"
-            android:layout_weight="0.3"
+            android:layout_marginTop="25dp"
+            android:background="@android:color/darker_gray"
+            android:scaleX="1"
+            android:scaleY="1"
             app:srcCompat="@drawable/map_back" />
 
-        <Button
+        <ImageButton
             android:id="@+id/b1"
-            android:layout_width="100dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.3"
-            android:text="水晶ページへ" />
+            android:layout_width="170dp"
+            android:layout_height="120dp"
+            android:background="@android:color/darker_gray"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            app:srcCompat="@drawable/go_get_suisho" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageResultMonster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
 
 </LinearLayout>

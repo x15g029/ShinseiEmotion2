@@ -52,28 +52,27 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/lay0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <LinearLayout
-                android:id="@+id/lay1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:orientation="vertical"></LinearLayout>
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/lay2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="160dp"
+                android:layout_height="130dp"
+                android:layout_marginLeft="10dp"
                 android:orientation="vertical">
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/lay1"
+                android:layout_width="160dp"
+                android:layout_height="130dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"></LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 
 </FrameLayout>

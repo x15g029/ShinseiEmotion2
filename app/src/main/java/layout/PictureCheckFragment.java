@@ -1,6 +1,7 @@
 package layout;
 
 
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,8 +11,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -49,6 +55,8 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
     private ImageView picView;
     private Animation animation2;
     private ImageView monster;
+    private Animation animation3;
+    public MediaPlayer mediaPlayer;
 
     public PictureCheckFragment() {
         // Required empty public constructor
@@ -198,12 +206,17 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
         }else if(view.getId() == R.id.btnNext){
             //判定する　 押下時
 
+            //BGM再生
+            mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_now);
+            mediaPlayer.start();
+
             //ボタンを非表示
             btn1.setVisibility(View.INVISIBLE);
             btn2.setVisibility(View.INVISIBLE);
             //アニメーションセット
             animation = AnimationUtils.loadAnimation(getContext(), R.anim.anime_yokokara);
             animation2 = AnimationUtils.loadAnimation(getContext(),R.anim.anime_sitani);
+            animation3 = AnimationUtils.loadAnimation(getContext(),R.anim.anime_hidarini);
 
             
             //実行順序
@@ -230,27 +243,43 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
                     }else if(bundle.getInt("惑星") == 8){
                         monster.setImageResource(R.drawable.m_kai1);
                     }
-                    //アニメーション起動
-                    monster.startAnimation(animation);
-                    picView.startAnimation(animation2);
+                    //アニメーション起動1　モンスター
+//                    monster.startAnimation(animation);
+                    //アニメーション起動3　セリフ
+                    AlphaAnimation alpha1 = new AlphaAnimation(1.0f, 0.0f); // 透明度を1から0.1に変化させる
+                    alpha1.setDuration(7100); // 7100msかけてアニメーションする
+                    monster.startAnimation(alpha1); // アニメーション適用
+
+
+                    //アニメーション起動2　写真
+                    AnimationSet set = new AnimationSet(true);
+                        //透過
+                        AlphaAnimation alpha = new AlphaAnimation(1, 0.1f); // 透明度を1から0.1に変化させる
+                        set.addAnimation(alpha);
+                        //回転
+                        RotateAnimation rotate = new RotateAnimation(0, 730, picView.getWidth()/2, picView.getHeight()/2); // imgの中心を軸に、0度から360度にかけて回転
+                        set.addAnimation(rotate);
+                        set.setDuration(7100); // 7100msかけてアニメーションする
+                        picView.startAnimation(set); // アニメーション適用
+
                     //レイアウトに追加
                     LinearLayout lay2 = (LinearLayout)getView().findViewById(R.id.lay2);
                     lay2.addView(monster);
-                }
-            }, 0);
 
-            handler.postDelayed(new Runnable() {
-                @Override
-                //宇宙人の動きが止まった後の処理
-                public void run() {
+
                     //セリフ表示
                     LinearLayout lay1 = (LinearLayout)getView().findViewById(R.id.lay1);
                     ImageView serihu = new ImageView(getContext());
-                    serihu.setImageResource(R.drawable.back);
+                    serihu.setImageResource(R.drawable.now_hantei);
                     lay1.addView(serihu);
+                    //アニメーション起動3　セリフ
+                    AlphaAnimation alpha2 = new AlphaAnimation(1.0f, 0.0f); // 透明度を1から0.1に変化させる
+                    alpha2.setDuration(7100); // 7100msかけてアニメーションする
+                    serihu.startAnimation(alpha2); // アニメーション適用
+
                 }
-            }, 2300);
-            
+            }, 0);
+
             handler.postDelayed(new Runnable() {
                 @Override
                 //8秒後に実行する処理
@@ -330,11 +359,28 @@ public class PictureCheckFragment extends Fragment implements View.OnClickListen
                         ft.commit();
                     }
                 }
-            }, 8000);
+            }, 7100);
                     
 
 
 
         }
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+
+
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
+    }
+
 }
