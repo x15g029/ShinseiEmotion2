@@ -2,6 +2,7 @@ package layout;
 
 
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -41,6 +42,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 	private int i6;
 	private int i7;
 	private int i8;
+	public MediaPlayer mediaPlayer;
 
 
 	public ResultOkFragment() {
@@ -106,7 +108,8 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			}
 			else if (bundle.getInt("結果1") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_sui_result);
@@ -114,14 +117,14 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			} else {
 				imageResultMonster.setImageResource(R.drawable.m_sui1);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.image_revenge);
 			}
 		} else if (bundle.getInt("惑星") == 2) {
 			//金星
@@ -142,7 +145,8 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			}
 			else if (bundle.getInt("結果2") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_kin_result);
@@ -150,14 +154,14 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			} else {
 				imageResultMonster.setImageResource(R.drawable.m_kin1);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.image_revenge);
 			}
 		} else if (bundle.getInt("惑星") == 3) {
 			//地球
@@ -178,7 +182,8 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			}
 			else if (bundle.getInt("結果3") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_ti2);
@@ -186,14 +191,14 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			} else {
 				imageResultMonster.setImageResource(R.drawable.m_ti1);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.image_revenge);
 			}
 		} else if (bundle.getInt("惑星") == 4) {
 			//火星
@@ -214,7 +219,8 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			}
 			else if (bundle.getInt("結果4") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_ka_result);
@@ -222,14 +228,14 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			} else {
 				imageResultMonster.setImageResource(R.drawable.m_ka1);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.image_revenge);
 			}
 		} else if (bundle.getInt("惑星") == 5) {
 			//木星
@@ -250,7 +256,8 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			}
 			else if (bundle.getInt("結果5") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_moku_result);
@@ -258,14 +265,14 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			} else {
 				imageResultMonster.setImageResource(R.drawable.m_ka_result);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.image_revenge);
 			}
 		} else if (bundle.getInt("惑星") == 6) {
 			//土星
@@ -286,7 +293,8 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			}
 			else if (bundle.getInt("結果6") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_do_result);
@@ -294,14 +302,14 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			} else {
 				imageResultMonster.setImageResource(R.drawable.m_do1);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.image_revenge);
 			}
 		} else if (bundle.getInt("惑星") == 7) {
 			//天王星
@@ -322,7 +330,8 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			}
 			else if (bundle.getInt("結果7") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_ten_result);
@@ -330,14 +339,14 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			} else {
 				imageResultMonster.setImageResource(R.drawable.m_ten1);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.image_revenge);
 			}
 		} else if (bundle.getInt("惑星") == 8) {
 			//海王星
@@ -358,7 +367,8 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			}
 			else if (bundle.getInt("結果8") >= 80) {
 				imageResultMonster.setImageResource(R.drawable.m_kai_result);
@@ -366,14 +376,14 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.result_map);
+				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
+				mediaPlayer.start();
 			} else {
 				imageResultMonster.setImageResource(R.drawable.m_kai1);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
-				btnStageSelect.setImageResource(R.drawable.image_revenge);
 			}
 		}
 

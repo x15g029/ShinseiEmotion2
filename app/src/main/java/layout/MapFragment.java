@@ -164,6 +164,5 @@ public class MapFragment extends Fragment implements View.OnClickListener {
             mediaPlayer.stop();
             mediaPlayer.release();
         }
-
     }
 }

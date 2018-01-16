@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,14 +19,16 @@ import android.widget.Toast;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.CameraPreview;
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.EmotionEngine;
+import layout.EncounterSuiFragment;
 import layout.PictureCheckFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CameraFragment extends Fragment implements View.OnTouchListener ,EmotionEngine.EmotionListener{
+public class CameraFragment extends Fragment implements View.OnTouchListener ,EmotionEngine.EmotionListener, View.OnClickListener {
 	CameraPreview mCamera;
 	private String path;
+	private Bundle bundle;
 
 	public CameraFragment() {
 		// Required empty public constructor
@@ -80,6 +83,9 @@ public class CameraFragment extends Fragment implements View.OnTouchListener ,Em
 		//カメラプレビュー用クラスの作成
 		mCamera = new CameraPreview();
 		mCamera.setTextureView(textureView);
+
+		ImageButton btnBack = (ImageButton)getView().findViewById(R.id.btnBack);
+		btnBack.setOnClickListener(this);
 
 		getView().setOnTouchListener(this);
 
@@ -222,4 +228,67 @@ public class CameraFragment extends Fragment implements View.OnTouchListener ,Em
 	}
 
 
+	@Override
+	public void onClick(View view) {
+		//遭遇画面へ戻る
+		bundle = getArguments();
+		if(bundle.getInt("惑星") == 1 ){
+			bundle.putInt("惑星",1);
+			FragmentTransaction ft = getFragmentManager().beginTransaction();
+			Fragment f = new EncounterSuiFragment();
+			f.setArguments(bundle);
+			ft.replace(R.id.layout_main,f);
+			ft.commit();
+		}else if(bundle.getInt("惑星") == 2 ){
+			bundle.putInt("惑星",2);
+			FragmentTransaction ft = getFragmentManager().beginTransaction();
+			Fragment f = new EncounterSuiFragment();
+			f.setArguments(bundle);
+			ft.replace(R.id.layout_main,f);
+			ft.commit();
+		}else if(bundle.getInt("惑星") == 3 ){
+			bundle.putInt("惑星",3);
+			FragmentTransaction ft = getFragmentManager().beginTransaction();
+			Fragment f = new EncounterSuiFragment();
+			f.setArguments(bundle);
+			ft.replace(R.id.layout_main,f);
+			ft.commit();
+		}else if(bundle.getInt("惑星") == 4 ){
+			bundle.putInt("惑星",4);
+			FragmentTransaction ft = getFragmentManager().beginTransaction();
+			Fragment f = new EncounterSuiFragment();
+			f.setArguments(bundle);
+			ft.replace(R.id.layout_main,f);
+			ft.commit();
+		}else if(bundle.getInt("惑星") == 5 ){
+			bundle.putInt("惑星",5);
+			FragmentTransaction ft = getFragmentManager().beginTransaction();
+			Fragment f = new EncounterSuiFragment();
+			f.setArguments(bundle);
+			ft.replace(R.id.layout_main,f);
+			ft.commit();
+		}else if(bundle.getInt("惑星") == 6 ){
+			bundle.putInt("惑星",6);
+			FragmentTransaction ft = getFragmentManager().beginTransaction();
+			Fragment f = new EncounterSuiFragment();
+			f.setArguments(bundle);
+			ft.replace(R.id.layout_main,f);
+			ft.commit();
+		}else if(bundle.getInt("惑星") == 7 ){
+			bundle.putInt("惑星",7);
+			FragmentTransaction ft = getFragmentManager().beginTransaction();
+			Fragment f = new EncounterSuiFragment();
+			f.setArguments(bundle);
+			ft.replace(R.id.layout_main,f);
+			ft.commit();
+		}else if(bundle.getInt("惑星") == 8 ){
+			bundle.putInt("惑星",8);
+			FragmentTransaction ft = getFragmentManager().beginTransaction();
+			Fragment f = new EncounterSuiFragment();
+			f.setArguments(bundle);
+			ft.replace(R.id.layout_main,f);
+			ft.commit();
+		}
+
+	}
 }

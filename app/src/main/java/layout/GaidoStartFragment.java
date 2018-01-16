@@ -750,8 +750,6 @@ public class GaidoStartFragment extends Fragment{
                     public void onClick(View view) {
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.replace(R.id.layout_main, new TutorialFragment1());
-                        mediaPlayer.stop();
-                        mediaPlayer.release();
                         ft.commit();
                     }
                 });
@@ -763,7 +761,24 @@ public class GaidoStartFragment extends Fragment{
 
 
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(mediaPlayer == null) {
+            mediaPlayer.start();
+        }
 
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if(mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
+    }
 
 }
 

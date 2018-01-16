@@ -132,7 +132,7 @@ public class EncounterSuiFragment extends Fragment implements View.OnClickListen
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
             ImageView Odai = (ImageView)getView().findViewById(R.id.imageOdai);
             Odai.setImageResource(R.drawable.odai_egao);
-            Monster.setImageResource(R.drawable.m_moku4);
+            Monster.setImageResource(R.drawable.m_moku1);
         }else if(bundle.getInt("惑星") == 6 ){
             //土星
             ImageView Monster = (ImageView)getView().findViewById(R.id.imageMonster);
