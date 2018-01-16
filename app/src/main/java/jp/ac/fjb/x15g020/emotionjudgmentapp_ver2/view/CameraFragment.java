@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,12 +36,44 @@ public class CameraFragment extends Fragment implements View.OnTouchListener ,Em
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
+
+
 		return inflater.inflate(R.layout.fragment_camera, container, false);
 	}
 
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
+
+		//お題表示
+		TextView odai =(TextView) getView().findViewById(R.id.odai);
+		Bundle bundle = getArguments();
+		if(bundle.getInt("惑星") == 1 ){
+			//水星
+			odai.setText("驚いた表情\nで撮影しよう!");
+		}else if(bundle.getInt("惑星") == 2 ){
+			//金星
+			odai.setText("嫌悪の表情\nで撮影しよう!");
+		}else if(bundle.getInt("惑星") == 3 ){
+			//地球
+			odai.setText("");
+		}else if(bundle.getInt("惑星") == 4 ){
+			//火星
+			odai.setText("怒った表情\nで撮影しよう!");
+		}else if(bundle.getInt("惑星") == 5 ){
+			//木星
+			odai.setText("最高の笑顔\nで撮影しよう!");
+		}else if(bundle.getInt("惑星") == 6 ){
+			//土星
+			odai.setText("悲しみの表情\nで撮影しよう!");
+		}else if(bundle.getInt("惑星") == 7 ){
+			//天王星
+			odai.setText("軽蔑の表情\nで撮影しよう!");
+		}else if(bundle.getInt("惑星") == 8 ){
+			//海王星
+			odai.setText("恐怖の表情\nで撮影しよう!");
+		}
+
 
 		//インスタンスの取得
 		TextureView textureView = (TextureView) getView().findViewById(R.id.textureCamera);

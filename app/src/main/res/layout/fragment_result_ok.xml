@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/resultView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -59,31 +60,28 @@
 
         <ImageButton
             android:id="@+id/btnStageSelect"
-            android:layout_width="130dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="25dp"
-            android:background="@android:color/darker_gray"
-            android:scaleX="1"
-            android:scaleY="1"
-            app:srcCompat="@drawable/map_back" />
+            android:layout_width="180dp"
+            android:layout_height="90dp"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            app:srcCompat="@drawable/result_map" />
 
         <ImageButton
             android:id="@+id/b1"
-            android:layout_width="170dp"
-            android:layout_height="120dp"
-            android:background="@android:color/darker_gray"
-            android:scaleX="0.9"
-            android:scaleY="0.9"
-            app:srcCompat="@drawable/go_get_suisho" />
+            android:layout_width="180dp"
+            android:layout_height="90dp"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            app:srcCompat="@drawable/go_suisho" />
 
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageResultMonster"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_width="360dp"
+        android:layout_height="220dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        app:srcCompat="@drawable/m_ka_result" />
 
 </LinearLayout>
