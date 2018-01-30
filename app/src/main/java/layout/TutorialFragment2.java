@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Button;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 
@@ -18,7 +18,8 @@ import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 public class TutorialFragment2 extends Fragment implements View.OnClickListener{
 
 
-    private ImageButton btn1;
+    private Button btn1;
+    private Button btn2;
 
     public TutorialFragment2() {
         // Required empty public constructor
@@ -38,17 +39,26 @@ public class TutorialFragment2 extends Fragment implements View.OnClickListener{
 
 
         //IDからオブジェクトを取得
-        btn1 = (ImageButton) view.findViewById(R.id.btnNext);
+        btn1 = (Button) view.findViewById(R.id.b1);
+        btn2 = (Button) view.findViewById(R.id.b2);
 
         //ボタンをリスナーに登録
         btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View view) {
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.layout_main,new TutorialFragment3());
-        ft.commit();
+        if(view.getId() == R.id.b1) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.layout_main, new TutorialFragment1());
+            ft.commit();
+        }
+        else if(view.getId() == R.id.b2){
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.layout_main, new TutorialFragment3());
+            ft.commit();
+        }
     }
 }

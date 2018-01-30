@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Button;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 
@@ -18,7 +18,7 @@ import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
 public class TutorialFragment1 extends Fragment implements View.OnClickListener {
 
 
-    private ImageButton btn1;
+    private Button btn1;
 
     public TutorialFragment1() {
         // Required empty public constructor
@@ -38,7 +38,8 @@ public class TutorialFragment1 extends Fragment implements View.OnClickListener 
 
 
         //IDからオブジェクトを取得
-        btn1 = (ImageButton) view.findViewById(R.id.btnNext);
+        btn1 = (Button) view.findViewById(R.id.b2);
+
 
         //ボタンをリスナーに登録
         btn1.setOnClickListener(this);

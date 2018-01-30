@@ -1,29 +1,32 @@
 package layout;
 
 
+import android.app.Dialog;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.File;
-import java.util.prefs.Preferences;
 
 import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R;
-import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model.EmotionEngine;
-import jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.view.CameraFragment;
 
+import static jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.R.drawable.bowl_moku;
 import static junit.runner.BaseTestRunner.getPreference;
 
 /**
@@ -43,6 +46,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 	private int i7;
 	private int i8;
 	public MediaPlayer mediaPlayer;
+	private Animation animation;
 
 
 	public ResultOkFragment() {
@@ -101,7 +105,22 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowlsui","クリア");
 				editor.commit();
 
-				//表情ボールを渡すシーン
+				//ボール
+				//	画像セット
+				ImageView imageBowl = new ImageView(getContext());
+				imageBowl.setImageResource(R.drawable.m_sui4);
+				imageBowl.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.anime));
+
+				// ダイアログ作成
+				Dialog dialog = new Dialog(getContext());
+				dialog.getWindow().setGravity(Gravity.BOTTOM);
+				//背景透明
+				dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+				// ダイアログ表示
+				dialog.setContentView(imageBowl);
+				dialog.show();
+
+				//宇宙人
 				imageResultMonster.setImageResource(R.drawable.m_sui_result);
 				//判定結果
 				imageResultText.setImageResource(R.drawable.result_ok);
@@ -111,15 +130,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
 				mediaPlayer.start();
 			}
-			else if (bundle.getInt("結果1") >= 80) {
-				imageResultMonster.setImageResource(R.drawable.m_sui_result);
-				imageResultText.setImageResource(R.drawable.result_ok);
-				//写真を表示
-				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
-				picView.setImageURI(Uri.fromFile(file));
-				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
-				mediaPlayer.start();
-			} else {
+			else {
 				imageResultMonster.setImageResource(R.drawable.m_sui1);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
@@ -138,7 +149,22 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowlkin","クリア");
 				editor.commit();
 
-				//表情ボールを渡すシーン
+				//ボール
+				//	画像セット
+				ImageView imageBowl = new ImageView(getContext());
+				imageBowl.setImageResource(R.drawable.m_kin4);
+				imageBowl.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.anime));
+
+				// ダイアログ作成
+				Dialog dialog = new Dialog(getContext());
+				dialog.getWindow().setGravity(Gravity.BOTTOM);
+				//背景透明
+				dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+				// ダイアログ表示
+				dialog.setContentView(imageBowl);
+				dialog.show();
+
+				//宇宙人
 				imageResultMonster.setImageResource(R.drawable.m_kin_result);
 				//判定結果
 				imageResultText.setImageResource(R.drawable.result_ok);
@@ -148,15 +174,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
 				mediaPlayer.start();
 			}
-			else if (bundle.getInt("結果2") >= 80) {
-				imageResultMonster.setImageResource(R.drawable.m_kin_result);
-				imageResultText.setImageResource(R.drawable.result_ok);
-				//写真を表示
-				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
-				picView.setImageURI(Uri.fromFile(file));
-				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
-				mediaPlayer.start();
-			} else {
+			else {
 				imageResultMonster.setImageResource(R.drawable.m_kin1);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
@@ -212,7 +230,22 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowlka","クリア");
 				editor.commit();
 
-				//表情ボールを渡すシーン
+				//ボール
+				//	画像セット
+				ImageView imageBowl = new ImageView(getContext());
+				imageBowl.setImageResource(R.drawable.m_ka4);
+				imageBowl.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.anime));
+
+				// ダイアログ作成
+				Dialog dialog = new Dialog(getContext());
+				dialog.getWindow().setGravity(Gravity.BOTTOM);
+				//背景透明
+				dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+				// ダイアログ表示
+				dialog.setContentView(imageBowl);
+				dialog.show();
+
+				//宇宙人
 				imageResultMonster.setImageResource(R.drawable.m_ka_result);
 				//判定結果
 				imageResultText.setImageResource(R.drawable.result_ok);
@@ -222,15 +255,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
 				mediaPlayer.start();
 			}
-			else if (bundle.getInt("結果4") >= 80) {
-				imageResultMonster.setImageResource(R.drawable.m_ka_result);
-				imageResultText.setImageResource(R.drawable.result_ok);
-				//写真を表示
-				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
-				picView.setImageURI(Uri.fromFile(file));
-				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
-				mediaPlayer.start();
-			} else {
+			else {
 				imageResultMonster.setImageResource(R.drawable.m_ka1);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
@@ -240,7 +265,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 		} else if (bundle.getInt("惑星") == 5) {
 			//木星
 			ResultOdai.setText("笑顔達成度 :" + bundle.getInt("結果5") + "%");
-			if (bundle.getInt("結果5") >= 90 ){
+			if (bundle.getInt("結果5") >= 0 ){
 				// プリファレンスの準備 //
 				SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 				// プリファレンスに書き込むためのEditorオブジェクト取得
@@ -249,25 +274,32 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowlmoku","クリア");
 				editor.commit();
 
-				//表情ボールを渡すシーン
+				//ボール
+				//	画像セット
+				ImageView imageBowl = new ImageView(getContext());
+				imageBowl.setImageResource(R.drawable.m_moku4);
+				imageBowl.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.anime));
+
+				// ダイアログ作成
+				Dialog dialog = new Dialog(getContext());
+				dialog.getWindow().setGravity(Gravity.BOTTOM);
+				//背景透明
+				dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+				// ダイアログ表示
+				dialog.setContentView(imageBowl);
+				dialog.show();
+
+				//宇宙人
 				imageResultMonster.setImageResource(R.drawable.m_moku_result);
 				//判定結果
 				imageResultText.setImageResource(R.drawable.result_ok);
-				//写真を表示
+				//写真
 				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
 				picView.setImageURI(Uri.fromFile(file));
 				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
 				mediaPlayer.start();
 			}
-			else if (bundle.getInt("結果5") >= 80) {
-				imageResultMonster.setImageResource(R.drawable.m_moku_result);
-				imageResultText.setImageResource(R.drawable.result_ok);
-				//写真を表示
-				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
-				picView.setImageURI(Uri.fromFile(file));
-				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
-				mediaPlayer.start();
-			} else {
+			else {
 				imageResultMonster.setImageResource(R.drawable.m_ka_result);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
@@ -277,7 +309,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 		} else if (bundle.getInt("惑星") == 6) {
 			//土星
 			ResultOdai.setText("悲しみ達成度　　:" + bundle.getInt("結果6") + "%");
-			if (bundle.getInt("結果6") >= 0){
+			if (bundle.getInt("結果6") >= 00){
 				// プリファレンスの準備 //
 				SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 				// プリファレンスに書き込むためのEditorオブジェクト取得
@@ -286,7 +318,22 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowldo","クリア");
 				editor.commit();
 
-				//表情ボールを渡すシーン
+				//ボール
+				//	画像セット
+				ImageView imageBowl = new ImageView(getContext());
+				imageBowl.setImageResource(R.drawable.m_do4);
+				imageBowl.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.anime));
+
+				// ダイアログ作成
+				Dialog dialog = new Dialog(getContext());
+				dialog.getWindow().setGravity(Gravity.BOTTOM);
+				//背景透明
+				dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+				// ダイアログ表示
+				dialog.setContentView(imageBowl);
+				dialog.show();
+
+				//宇宙人
 				imageResultMonster.setImageResource(R.drawable.m_do_result);
 				//判定結果
 				imageResultText.setImageResource(R.drawable.result_ok);
@@ -296,15 +343,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
 				mediaPlayer.start();
 			}
-			else if (bundle.getInt("結果6") >= 80) {
-				imageResultMonster.setImageResource(R.drawable.m_do_result);
-				imageResultText.setImageResource(R.drawable.result_ok);
-				//写真を表示
-				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
-				picView.setImageURI(Uri.fromFile(file));
-				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
-				mediaPlayer.start();
-			} else {
+			else {
 				imageResultMonster.setImageResource(R.drawable.m_do1);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
@@ -323,7 +362,22 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowlten","クリア");
 				editor.commit();
 
-				//表情ボールを渡すシーン
+				//ボール
+				//	画像セット
+				ImageView imageBowl = new ImageView(getContext());
+				imageBowl.setImageResource(R.drawable.m_ten4);
+				imageBowl.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.anime));
+
+				// ダイアログ作成
+				Dialog dialog = new Dialog(getContext());
+				dialog.getWindow().setGravity(Gravity.BOTTOM);
+				//背景透明
+				dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+				// ダイアログ表示
+				dialog.setContentView(imageBowl);
+				dialog.show();
+
+				//宇宙人
 				imageResultMonster.setImageResource(R.drawable.m_ten_result);
 				//判定結果
 				imageResultText.setImageResource(R.drawable.result_ok);
@@ -333,15 +387,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
 				mediaPlayer.start();
 			}
-			else if (bundle.getInt("結果7") >= 80) {
-				imageResultMonster.setImageResource(R.drawable.m_ten_result);
-				imageResultText.setImageResource(R.drawable.result_ok);
-				//写真を表示
-				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
-				picView.setImageURI(Uri.fromFile(file));
-				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
-				mediaPlayer.start();
-			} else {
+			else {
 				imageResultMonster.setImageResource(R.drawable.m_ten1);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
@@ -360,7 +406,22 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				editor.putString("bowlkai","クリア");
 				editor.commit();
 
-				//表情ボールを渡すシーン
+				//ボール
+				//	画像セット
+				ImageView imageBowl = new ImageView(getContext());
+				imageBowl.setImageResource(R.drawable.m_kai4);
+				imageBowl.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.anime));
+
+				// ダイアログ作成
+				Dialog dialog = new Dialog(getContext());
+				dialog.getWindow().setGravity(Gravity.BOTTOM);
+				//背景透明
+				dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+				// ダイアログ表示
+				dialog.setContentView(imageBowl);
+				dialog.show();
+
+				//宇宙人
 				imageResultMonster.setImageResource(R.drawable.m_kai_result);
 				//判定結果
 				imageResultText.setImageResource(R.drawable.result_ok);
@@ -370,15 +431,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
 				mediaPlayer.start();
 			}
-			else if (bundle.getInt("結果8") >= 80) {
-				imageResultMonster.setImageResource(R.drawable.m_kai_result);
-				imageResultText.setImageResource(R.drawable.result_ok);
-				//写真を表示
-				ImageView picView = (ImageView) getView().findViewById(R.id.imageResultPicture);
-				picView.setImageURI(Uri.fromFile(file));
-				mediaPlayer = MediaPlayer.create(getContext(), R.raw.bgm_ok);
-				mediaPlayer.start();
-			} else {
+			else {
 				imageResultMonster.setImageResource(R.drawable.m_kai1);
 				imageResultText.setImageResource(R.drawable.image_ng);
 				//写真を表示
