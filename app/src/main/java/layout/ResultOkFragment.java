@@ -265,7 +265,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 		} else if (bundle.getInt("惑星") == 5) {
 			//木星
 			ResultOdai.setText("笑顔達成度 :" + bundle.getInt("結果5") + "%");
-			if (bundle.getInt("結果5") >= 0 ){
+			if (bundle.getInt("結果5") >= 80 ){
 				// プリファレンスの準備 //
 				SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 				// プリファレンスに書き込むためのEditorオブジェクト取得

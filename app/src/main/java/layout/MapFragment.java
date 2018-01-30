@@ -29,6 +29,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     private ImageButton btn8;
     public FragmentTransaction ft_c;
     public EncounterSuiFragment f_c;
+    public HomeFragment f_b;
     public MediaPlayer mediaPlayer;
 
     public MapFragment() {
@@ -81,6 +82,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
         Bundle bundle = new Bundle();
         ft_c = getFragmentManager().beginTransaction();
          f_c = new EncounterSuiFragment();
+         f_b = new HomeFragment();
         if(view.getId() == R.id.btnSui) {
             //水星  押下時
             bundle.putInt("惑星",1);
@@ -101,7 +103,7 @@ public class MapFragment extends Fragment implements View.OnClickListener {
             //地球　 押下時
             bundle.putInt("惑星",3);
             f_c.setArguments(bundle);
-            ft_c.replace(R.id.layout_main,f_c);
+            ft_c.replace(R.id.layout_main,f_b);
 //            mediaPlayer.stop();
 //            mediaPlayer.release();
             ft_c.commit();
