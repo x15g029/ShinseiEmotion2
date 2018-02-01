@@ -309,7 +309,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 		} else if (bundle.getInt("惑星") == 6) {
 			//土星
 			ResultOdai.setText("悲しみ達成度　　:" + bundle.getInt("結果6") + "%");
-			if (bundle.getInt("結果6") >= 00){
+			if (bundle.getInt("結果6") >= 0){
 				// プリファレンスの準備 //
 				SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 				// プリファレンスに書き込むためのEditorオブジェクト取得
