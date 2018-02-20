@@ -1,5 +1,6 @@
 package jp.ac.fjb.x15g020.emotionjudgmentapp_ver2.model;
 
+import android.net.Uri;
 import android.os.AsyncTask;
 
 import org.json.JSONArray;
@@ -21,9 +22,9 @@ import java.net.URL;
  */
 
 public class EmotionEngine {
-	final static String EmotionURL = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize";
-	final static String EmotuionKey1 = "0a284af59c244f9e9d5c1cca8c35e322";
-	final static String EmotuionKey2 = "5ec452cd6bec42daa2f0bc00142297fa";
+	final static String EmotionURL = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+	final static String EmotuionKey1 = "ca9850cf8c744d379b53fa94ac606dc9";
+	final static String EmotuionKey2 = "5152724cec204d1b8f5c4613eafe1564";
 	public static class EmotionParam implements Serializable{
 		public double anger;
 		public double contempt;
@@ -49,7 +50,8 @@ public class EmotionEngine {
 						EmotionParam[] params = new EmotionParam[json.length()];
 						for(int i=0;i<json.length();i++){
 							JSONObject jsonObject = (JSONObject)json.get(0);
-							JSONObject scores = (JSONObject)jsonObject.get("scores");
+							JSONObject attributes = (JSONObject)jsonObject.get("faceAttributes");
+							JSONObject scores = (JSONObject)attributes.get("emotion");
 							EmotionParam param = new EmotionParam();
 							param.anger = scores.getDouble("anger");
 							param.contempt = scores.getDouble("contempt");
@@ -78,6 +80,7 @@ public class EmotionEngine {
 				listener.onProgress(values[0],values[1]);
 			}
 
+
 			@Override
 			protected JSONArray doInBackground(Integer... integers) {
 				JSONArray json = null;
@@ -86,7 +89,13 @@ public class EmotionEngine {
 					if(file == null)
 						return null;
 
-					URL url = new URL(EmotionURL);
+					Uri uri = Uri.parse(EmotionURL);
+					uri = uri.buildUpon()
+						.appendQueryParameter("returnFaceId", "true")
+						.appendQueryParameter("returnFaceLandmarks", "false")
+						.appendQueryParameter("returnFaceAttributes", "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise")
+						      .build();
+					URL url = new URL(uri.toString());
 					HttpURLConnection con = (HttpURLConnection) url.openConnection();
 					con.setReadTimeout(10000);
 					con.setConnectTimeout(20000);
