@@ -87,22 +87,20 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btnMap"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="MAPへ" />
-
-        <Button
             android:id="@+id/btnReset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
             android:layout_weight="0.02"
             android:text="水晶を全部捨てる" />
 
         <Button
+            android:id="@+id/btnMap"
+            android:layout_width="match_parent" />
+
+        <Button
             android:id="@+id/testbtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_weight="0.02"
             android:text="Openingテスト表示" />
 

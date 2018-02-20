@@ -96,7 +96,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 		if (bundle.getInt("惑星") == 1) {
 			//水星
 			ResultOdai.setText("驚き達成度　　:" + bundle.getInt("結果1") + "%");
-			if (bundle.getInt("結果1") >= 0){
+			if (bundle.getInt("結果1") >= 50){
 				// プリファレンスの準備 //
 				SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 				// プリファレンスに書き込むためのEditorオブジェクト取得
@@ -140,7 +140,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 		} else if (bundle.getInt("惑星") == 2) {
 			//金星
 			ResultOdai.setText("軽蔑達成度　　:" + bundle.getInt("結果2") + "%");
-			if (bundle.getInt("結果2") >= 0){
+			if (bundle.getInt("結果2") >= 1){
 				// プリファレンスの準備 //
 				SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 				// プリファレンスに書き込むためのEditorオブジェクト取得
@@ -221,7 +221,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 		} else if (bundle.getInt("惑星") == 4) {
 			//火星
 			ResultOdai.setText("怒り達成度　　:" + bundle.getInt("結果4") + "%");
-			if (bundle.getInt("結果4") >= 0){
+			if (bundle.getInt("結果4") >= 1){
 				// プリファレンスの準備 //
 				SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 				// プリファレンスに書き込むためのEditorオブジェクト取得
@@ -309,7 +309,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 		} else if (bundle.getInt("惑星") == 6) {
 			//土星
 			ResultOdai.setText("悲しみ達成度　　:" + bundle.getInt("結果6") + "%");
-			if (bundle.getInt("結果6") >= 0){
+			if (bundle.getInt("結果6") >= 50){
 				// プリファレンスの準備 //
 				SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 				// プリファレンスに書き込むためのEditorオブジェクト取得
@@ -353,7 +353,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 		} else if (bundle.getInt("惑星") == 7) {
 			//天王星
 			ResultOdai.setText("恐怖達成度　　:" + bundle.getInt("結果7") + "%");
-			if (bundle.getInt("結果7") >= 0){
+			if (bundle.getInt("結果7") >= 1){
 				// プリファレンスの準備 //
 				SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 				// プリファレンスに書き込むためのEditorオブジェクト取得
@@ -397,7 +397,7 @@ public class ResultOkFragment extends Fragment implements View.OnClickListener{
 		} else if (bundle.getInt("惑星") == 8) {
 			//海王星
 			ResultOdai.setText("嫌悪達成度　　:" + bundle.getInt("結果8") + "%");
-			if (bundle.getInt("結果8") >= 0){
+			if (bundle.getInt("結果8") >= 1){
 				// プリファレンスの準備 //
 				SharedPreferences pref = getContext().getSharedPreferences( "pref", getContext().MODE_PRIVATE );
 				// プリファレンスに書き込むためのEditorオブジェクト取得
